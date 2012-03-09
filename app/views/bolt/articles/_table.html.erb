@@ -1,0 +1,26 @@
+<table id="container" bgcolor="Cornsilk" align="left">
+  <tr>
+  	<td><input type="checkbox" id="chkunchk"  onclick="select_all()"/></td>
+    <td><font color="blue">Title</font></td>
+    <td><font color="blue">Alias</font></th>
+    <td><font color="blue">Category</font></td>
+    <td><font color="blue">Status</font></td>
+    <td><font color="blue">Access</font></td>
+    <td><font color="blue">Featured</font></td>
+        
+  </tr>
+
+<% @articles.each do |article| %>
+  <tr>
+  <td style="px"><input class='selall'  type='checkbox' id='chk_<%=article.id%>'  name ='checkbox' onclick="test()"  value='<%=article.id %>'></td>
+
+    <td><%= article.title %></td>
+    <td><%= article.alias %></td>
+    <td><%= article.category %></td>
+    <td><%= article.status %></td>
+    <td><%= article.access %></td>
+    <td><%= article.featured %></td>
+    
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,40 @@
+module Backbone
+  class UpdateGenerator < Rails::Generators::Base
+    
+      source_root File.expand_path('../templates', __FILE__)
+      
+      def generate_files
+        puts "*** Updating Backbone public assets. These should not be modified as they may be overwritten in future updates. ***"
+
+        #stylesheets
+  			copy_file "public/backbone/stylesheets/screen.css", "public/backbone/stylesheets/screen.css"
+  			copy_file "public/backbone/stylesheets/elements.css", "public/backbone/stylesheets/elements.css"
+  			copy_file "public/backbone/stylesheets/login.css", "public/backbone/stylesheets/login.css"
+
+  			#javascripts
+  			copy_file "public/backbone/javascripts/backbone.js", "public/backbone/javascripts/backbone.js"
+  			copy_file "public/backbone/javascripts/login.js", "public/backbone/javascripts/login.js"
+  			copy_file "public/backbone/javascripts/jquery.js", "public/backbone/javascripts/jquery.js"
+  			copy_file "public/backbone/javascripts/rails.js", "public/backbone/javascripts/rails.js"
+
+        #images
+        copy_file "public/backbone/images/header.png", "public/backbone/images/header.png"
+        copy_file "public/backbone/images/nav.png", "public/backbone/images/nav.png"
+        copy_file "public/backbone/images/rightNav.png", "public/backbone/images/rightNav.png"
+        copy_file "public/backbone/images/rightNavButton.png", "public/backbone/images/rightNavButton.png"
+        copy_file "public/backbone/images/backbone.png", "public/backbone/images/backbone.png"
+        copy_file "public/backbone/images/visitSiteNav.png", "public/backbone/images/visitSiteNav.png"
+  			copy_file "public/backbone/images/login/top.png", "public/backbone/images/login/top.png"
+  		  copy_file "public/backbone/images/login/bottom.png", "public/backbone/images/login/bottom.png"
+
+  			#icons
+  			all_icons = Dir.new(File.expand_path('../templates/public/backbone/images/icons/', __FILE__)).entries
+
+  			for icon in all_icons
+  				if File.extname(icon) == ".png"
+  					copy_file "public/backbone/images/icons/#{icon}", "public/backbone/images/icons/#{icon}"
+  				end
+  			end
+  		end
+  end
+end

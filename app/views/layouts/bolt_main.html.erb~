@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title><%= bolt_generate_page_title %></title>
+    <% bolt_config_stylesheet_includes.each do |stylesheet| %>
+    <%= stylesheet_link_tag(stylesheet) %>
+    <% end %>
+    
+    <% bolt_config_javascript_includes.each do |javascript| %>
+    <%= javascript_include_tag(javascript) %>
+    <% end %>
+    
+    <%= javascript_include_tag "http://js.nicedit.com/nicEdit-latest.js" %>
+    
+    <%= csrf_meta_tag %>
+        
+    </head>
+  <body>
+    <div id="header">
+<p class="margin">
+      <a href="#">Site</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#">Users</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#">News</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+    <p align="right"><a href="/backbone/user_session" data-method="delete" rel="nofollow"><%= image_tag("logout.png") %></a></p>
+    <a  href="<%= bolt_articles_path %>" >Article</a>&nbsp;&nbsp;
+    <a  href="<%= bolt_users_path %>" >Users</a>&nbsp;&nbsp;
+    <a  href="<%= bolt_users_groups_path %>" >User Groups</a>&nbsp;&nbsp; 
+      
+    <div id="rightBar">
+      <div class="spacer"></div>
+      <ul>
+	<%= yield :sidebar %>
+      </ul>
+    </div>
+    <div id="content">
+      <div id="data">
+	<% if flash[:warning] %>
+	<div id="error">
+	  <%= flash[:warning] %>
+	</div>
+	<% end %>
+	<% if flash[:notice] %>
+	<div id="notice">
+	  <%= flash[:notice] %>
+	</div>
+	<% end %>
+	<%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

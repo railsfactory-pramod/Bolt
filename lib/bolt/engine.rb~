@@ -1,0 +1,24 @@
+#require "backbone"
+require "rails"
+
+module Backbone
+  class Railtie < Rails::Railtie    
+    rake_tasks do
+      task :name do
+        puts "hi"
+      end
+      load "backbone/railties/tasks.rake"
+    end
+    
+  end
+  
+  class RouteConstraint
+
+     def matches?(request)
+       return false if request.fullpath.include?("/backbone")
+       return false if request.fullpath.include?("/admin")
+       true
+     end
+
+   end
+end
