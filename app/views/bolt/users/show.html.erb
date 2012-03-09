@@ -26,6 +26,15 @@
 </div>
 <% end %>
 
+
+<div>Assing Group</div>
+
+<% @bolt_user.users_groups.each do |ug| %>    
+<%= f.fields_for :users_groups, ug do |g_fields| %>
+<%= g_fields.check_box :group_id, {:multiple => true, :checked => @u_groups.include?(ug.group.id) ? true : false } , ug.group.id, 0 %><%= ug.group.name %><br/>
+<% end %>
+<% end %>
+
 <div class="clearer"></div>
 
 <p class="submits">
@@ -77,6 +86,8 @@
 <div class="tfContainer tfContainerSecond">
   <%= bolt_password_field f, f.object, :password_confirmation, {:bolt_label => "Repeat password"} %>
 </div>
+
+<div class="clearer"></div>
 
 <div class="clearer"></div>
 

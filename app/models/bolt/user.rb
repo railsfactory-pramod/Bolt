@@ -16,19 +16,13 @@ module Bolt
    
     has_many :users_groups
     has_many :groups, :through => :users_groups
+    accepts_nested_attributes_for :users_groups
     
     acts_as_authentic { |c| c.validate_email_field = false }
     
     attr_accessor :notify_of_new_password
     
-    after_create :send_create_notification
-    after_update :send_update_notification
-    before_validation :check_time_zone
     
-    validates_presence_of :login, :name, :email
-    validates_uniqueness_of :login
-    validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-    validates_presence_of :time_zone
     
     def self.has_more_than_one_admin
       Bolt::User.where(:access_level => $BOLT_USER_ACCESS_LEVEL_ADMIN).count > 1

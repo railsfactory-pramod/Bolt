@@ -19,7 +19,10 @@ module Bolt
     # GET /bolt/users/new.json
     def new
       @bolt_user = Bolt::User.new
-      @bolt_user_group = Bolt::UsersGroup.all
+      Group.all.each do |group|
+        @bolt_user.users_groups.build(:group_id => group.id)
+      end
+
       respond_to do |format|
         format.html # new.html.erb
         format.json { render :json => @bolt_users }
@@ -28,19 +31,25 @@ module Bolt
 
     def show 
       @bolt_user = Bolt::User.find(params[:id])
+      @u_groups = @bolt_user.groups.collect{|g| g.id}
+      puts "------------"
+      puts @u_groups.inspect
+      Group.all.each {|group|
+        @bolt_user.users_groups.build(:group_id => group.id)
+      }
     end
 
     # GET /bolt/users/1/edit
     def edit
       @bolt_user = Bolt::User.find(params[:id])
-      @bolt_user_group = Bolt::UsersGroup.all
+      
     end
 
     # POST /bolt/users
     # POST /bolt/users.json
     def create
       @bolt_user = Bolt::User.new(params[:bolt_user])
-
+      
       respond_to do |format|
         if @bolt_user.save
           format.html { redirect_to :action=>'index', :notice => 'User was successfully created.' }
