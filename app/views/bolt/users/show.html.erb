@@ -29,10 +29,19 @@
 
 <div>Assing Group</div>
 
-<% @bolt_user.users_groups.each do |ug| %>    
-<%= f.fields_for :users_groups, ug do |g_fields| %>
-<%= g_fields.check_box :group_id, {:multiple => true, :checked => @u_groups.include?(ug.group.id) ? true : false } , ug.group.id, 0 %><%= ug.group.name %><br/>
+<%= f.fields_for :users_groups do |g_fields| %>
+<%= g_fields.hidden_field :group_id %>
+<%= g_fields.check_box :_destroy, {:checked => g_fields.object.persisted?}, 0, 1 %><%= g_fields.object.group.name %><br/>
 <% end %>
+
+<% @groups.each do |ug| 
+     if(!@u_groups.include?(ug.id))
+%>
+<%= f.fields_for :users_groups, @bolt_user.users_groups.build do |g_fields| %>
+<%= g_fields.check_box :group_id, {:checked => false}, ug.id %><%= ug.name %><br/>
+<%   end
+   end
+%>
 <% end %>
 
 <div class="clearer"></div>

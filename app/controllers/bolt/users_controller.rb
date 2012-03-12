@@ -4,7 +4,7 @@ module Bolt
     # GET /bolt/users.json
     def index
       @bolt_users = Bolt::User.all
-      # @bolt_user_group = Bolt::UserGroup.all
+      
       respond_to do |format|
         format.html # index.html.erb
         format.json { render :json => @bolt_users }
@@ -19,10 +19,9 @@ module Bolt
     # GET /bolt/users/new.json
     def new
       @bolt_user = Bolt::User.new
-      Group.all.each do |group|
-        @bolt_user.users_groups.build(:group_id => group.id)
-      end
-
+      
+      @groups = Group.all
+      
       respond_to do |format|
         format.html # new.html.erb
         format.json { render :json => @bolt_users }
@@ -32,11 +31,7 @@ module Bolt
     def show 
       @bolt_user = Bolt::User.find(params[:id])
       @u_groups = @bolt_user.groups.collect{|g| g.id}
-      puts "------------"
-      puts @u_groups.inspect
-      Group.all.each {|group|
-        @bolt_user.users_groups.build(:group_id => group.id)
-      }
+      @groups = Group.all      
     end
 
     # GET /bolt/users/1/edit
@@ -71,7 +66,7 @@ module Bolt
           format.html { redirect_to :action=>'index', :notice => 'User was successfully updated.' }
           format.json { head :no_content }
         else
-          format.html { render :action => "edit" }
+          format.html { render :action => "show" }
           format.json { render :json => @bolt_user.errors, :status => :unprocessable_entity }
         end
       end
@@ -88,5 +83,6 @@ module Bolt
         format.json { head :no_content }
       end
     end
+        
   end
 end

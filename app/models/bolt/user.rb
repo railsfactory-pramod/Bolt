@@ -15,15 +15,14 @@ module Bolt
     end
    
     has_many :users_groups
-    has_many :groups, :through => :users_groups
-    accepts_nested_attributes_for :users_groups
+    has_many :groups, :through => :users_groups, :dependent => :destroy
+    accepts_nested_attributes_for :users_groups, :reject_if => proc { |attributes| attributes['group_id'].blank? || attributes['group_id'].to_i == 0}, :allow_destroy => true
     
     acts_as_authentic { |c| c.validate_email_field = false }
     
     attr_accessor :notify_of_new_password
     
-    
-    
+        
     def self.has_more_than_one_admin
       Bolt::User.where(:access_level => $BOLT_USER_ACCESS_LEVEL_ADMIN).count > 1
     end

@@ -37,9 +37,9 @@
 
 <div>Assing Group</div>
 
-<% @bolt_user.users_groups.each do |ug| %>    
-<%= form.fields_for :users_groups, ug do |g_fields| %>
-<%= g_fields.check_box :group_id, {:multiple => true, :checked => false } %><%= ug.group.name %><br/>
+<% @groups.each do |ug| %>    
+<%= form.fields_for :users_groups do |g_fields| %>
+<%= g_fields.check_box :group_id, {:checked => false}, ug.id %><%= ug.name %><br/>
 <% end %>
 <% end %>
 
