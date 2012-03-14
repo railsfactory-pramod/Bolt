@@ -10,12 +10,14 @@ Bolt::Application.routes.draw do
   post "bolt/media/delete_file" => "bolt/media#delete_file", :as => "delete_file"
 
   namespace :bolt do
+    resources :page_sections
+    resources :pages
     resources :articles_categories
-	resources :user_statuses
-	resources :statuses
-	resources :accesses
-	resources :categories
-	resources :blogs
+    resources :user_statuses
+    resources :statuses
+    resources :accesses
+    resources :categories
+    resources :blogs
     resources :articles    
     resources :groups
     resources :users_groups

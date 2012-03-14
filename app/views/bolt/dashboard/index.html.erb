@@ -1,13 +1,16 @@
 <table>
   <tr>
-   <td style="padding:10px;">
-User Manager<br/>&nbsp;&nbsp;&nbsp;<a  href="/bolt/users" ><%= image_tag("user.png") %></a>
-   </td>
-   <td style="padding:10px;">
-Article Manager<br/>&nbsp;&nbsp;&nbsp;<a  href="/bolt/articles" ><%= image_tag("article.png") %></a>
-  </td>
-     <td style="padding:10px;">
-Media Manager<br/>&nbsp;&nbsp;&nbsp;<a  href="/bolt/media" ><%= image_tag("media.png") %></a>
-  </td>
+    <td style="padding:10px;">
+      User Manager<br/>&nbsp;&nbsp;&nbsp;<a  href="<%= bolt_users_path %>" ><%= image_tag("user.png") %></a>
+    </td>
+    <td style="padding:10px;">
+      Article Manager<br/>&nbsp;&nbsp;&nbsp;<a  href="<%= bolt_articles_path %>" ><%= image_tag("article.png") %></a>
+    </td>
+    <td style="padding:10px;">
+      Media Manager<br/>&nbsp;&nbsp;&nbsp;<a  href="<%= bolt_media_path %>" ><%= image_tag("media.png") %></a>
+    </td>
+    <td style="padding:10px;">
+      Page Manager<br/>&nbsp;&nbsp;&nbsp;<a href="<%= bolt_pages_path %>" ><%= image_tag("page_manager.png") %></a>
+    </td>
   </tr>
 </table>

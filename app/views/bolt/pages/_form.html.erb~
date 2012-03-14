@@ -1,0 +1,41 @@
+
+
+
+<div class="tfContainer">
+	<%= bolt_text_field f, f.object, :path %>
+</div>
+
+<div class="tfContainer tfContainerSecond">
+	<%= bolt_text_field f, f.object, :title %>
+</div>
+
+<div class="tfContainer">
+	<%= bolt_text_field f, f.object, :show_in_menu %>
+</div>
+
+<div class="tfContainer tfContainerSecond">
+	<%= bolt_text_field f, f.object, :link_url %>
+</div>
+
+<div class="tfContainer">
+	<%= bolt_text_field f, f.object, :deletable %>
+</div>
+
+<div class="tfContainer tfContainerSecond">
+	<%= bolt_text_field f, f.object, :menu_match %>
+</div>
+
+<div class="tfContainer">
+	<%= bolt_text_field f, f.object, :status %>
+</div>
+
+<div class="tfContainer tfContainerSecond">
+	<%= bolt_text_field f, f.object, :view_template %>
+</div>
+
+<div class="tfContainer">
+	<%= bolt_text_field f, f.object, :default_template %>
+</div>
+
+<div class="tfContainer tfContainerSecond"></div>
+<div class="clearer"></div>
