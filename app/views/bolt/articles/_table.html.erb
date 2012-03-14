@@ -16,7 +16,9 @@
 
     <td><%= article.title %></td>
     <td><%= article.alias %></td>
-    <td><%= article.category %></td>
+   <td><% article.categories.each do |g| %>
+		<%= g.name.titleize %>,
+	     <% end %>
     <td><%= article.status %></td>
     <td><%= article.access%></td>
     <td><%= Article::FEATURED_TYPES[article.featured] %></td>

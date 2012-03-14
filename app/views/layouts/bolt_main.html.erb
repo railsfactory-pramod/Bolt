@@ -35,6 +35,49 @@ padding-bottom:-3px;
       }
       
     </style>
+    
+    <style type="text/css">
+
+		ul {
+			font-family: Arial, Verdana;
+			font-size: 14px;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		ul li {
+			display: block;
+			position: relative;
+			float: left;
+		}
+		li ul { display: none; }
+		ul li a {
+			display: block;
+			text-decoration: none;
+			color: #ffffff;
+			border-top: 1px solid #ffffff;
+			padding: 5px 15px 5px 15px;
+			background:#9966CC ;
+			margin-left: 1px;
+			white-space: nowrap;
+		}
+		
+		ul li a:hover { background:#9966CC; }
+		li:hover ul { 
+			display: block; 
+			position: absolute;
+		}
+		li:hover li { 
+			float: none;
+			font-size: 11px;
+		}
+		li:hover a { background:#9966CC; }
+		li:hover li a:hover { background:#9966CC; }
+
+	</style>	
+    
+    
+    
     <title>BOLT</title>
     <%= stylesheet_link_tag "scaffold" %>
     <%= stylesheet_link_tag "depot" , :media => "all" %>
@@ -51,17 +94,52 @@ padding-bottom:-3px;
 <%= image_tag("logo.png",:size => '100x32' ) %>
 <%= @page_title || "Administration" %>
 </div>
-    <p class="margin1">&nbsp;</p>
-    <table  width="100%">
+   
+    <table  width="100%" height="1%"  >
   
-<p class="margin"><td>
-     <a href="#"><h5>Site</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <a href="#">Users</a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
-<a href="#">News</a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
-     <a href="#">Contact</h5></a>
+<p class="margin"><td><ul id="menu">
+     	
+			<li><a href="localhost:3000">Site</a>
+				<ul>
+     			  <li><a href="/bolt/dashboard">Dashboard</a></li>
+     		   </ul>	
+     		</li>
+     		
+		    <li><a href="/bolt/users">Users</a> 
+		      <ul>
+
+		      	<li><a href="/bolt/users">User Manager</a></li>
+		        <li><a href="/bolt/groups">Group Managaer</a></li> 
+		        
+		      </ul> 
+		    </li> 
+		    <li><a href="">Content</a> 
+		      <ul> 
+		        <li><a href="/bolt/articles">Article Manager</a></li> 
+		        <li><a href="/bolt/categories">Category Manager</a></li> 
+		        <li><a href="#">Media Manager</a></li> 
+		        
+		      </ul> 
+		    </li>
+
+            <li><a href="#">Pages</a> 
+		      <ul> 
+		        <li><a href="#">I don't Know</a></li> 
+		      </ul> 
+		    </li> 
+		    
+		    <li><a href="#">Help</a> 
+		      <ul> 
+		        <li><a href="#">Rails Help</a></li> 
+		        <li><a href="#">Official Support Forum </a></li> 
+		        
+		      </ul> 
+		    </li> 
+		</ul>	
          <p align="right"><a  href="/bolt/user_session" data-method="delete" rel="nofollow"><%= image_tag("logout.png") %></a></p></td>
     </p>
 </table>
+    
    
     
       

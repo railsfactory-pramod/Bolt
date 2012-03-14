@@ -38,26 +38,28 @@
 	<td width='150'><%= f.label :password_confirmation %></td>
 	<td><%= f.password_field :password_confirmation, :class=> "inputfield" %></td>    
 </tr>	
-</table>
 
 
 
-<div>Assing Group</div>
-
+<tr><td width="150">Assing Group</td>
+<td>
 <%= f.fields_for :users_groups do |g_fields| %>
 <%= g_fields.hidden_field :group_id %>
-<%= g_fields.check_box :_destroy, {:checked => g_fields.object.persisted?}, 0, 1 %><%= g_fields.object.group.name %><br/>
+<%= g_fields.check_box :_destroy, {:checked => g_fields.object.persisted?}, 0, 1 %><%= g_fields.object.group.name %>
 <% end %>
 
 <% @groups.each do |ug| 
      if(!@u_groups.include?(ug.id))
 %>
 <%= f.fields_for :users_groups, @bolt_user.users_groups.build do |g_fields| %>
-<%= g_fields.check_box :group_id, {:checked => false}, ug.id %><%= ug.name %><br/><br/>
+<%= g_fields.check_box :group_id, {:checked => false}, ug.id %><%= ug.name %>&nbsp;&nbsp;
 <%   end
    end
 %>
 <% end %>
+</td>
+</tr>
+</table>
 
 <div class="clearer"></div>
 

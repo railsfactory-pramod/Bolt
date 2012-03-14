@@ -39,19 +39,19 @@
 	<td width='150'><%= f.label :password_confirmation %></td>
 	<td><%= f.password_field :password_confirmation, :class=> "inputfield" %></td>    
 </tr>	
-</table>
+
   
-  <div>Assing Group</div>
+  <tr><td width="150">Assing Groups</td><td>
   <% @groups.each do |ug| 
-  if(!@groups.include?(ug.id))
+  
 %>
 <%= f.fields_for :users_groups, @bolt_user.users_groups.build do |g_fields| %>
-<%= g_fields.check_box :group_id, {:checked => false}, ug.id %><%= ug.name %><br/><br/>
-<%   end
-   end
-%>
-<%end%>
+<%= g_fields.check_box :group_id, {:checked => false}, ug.id %><%= ug.name %>
+   <%end
+  end
+%></td></tr>
 
+</table>
 
   
   

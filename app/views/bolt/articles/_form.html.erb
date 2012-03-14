@@ -1,4 +1,24 @@
+<style type="text/css">
+.center
+{
+margin:auto;
+width:-10%;
 
+}
+p.ag
+{
+
+width:40%;
+}
+.scroll {
+	border:1px solid silver;
+width: 200px; 
+height: 100px;
+padding-left: 10px;
+padding-right: 5px; 
+overflow: auto;
+}
+</style>
 <div class="tab">
   <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -12,55 +32,82 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <%= f.text_field :title%>
-  </div>
-  <div class="field"><br/>
-    <%= f.label :alias %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <%= f.text_field :alias %>
-  </div>
- <div class="field"><br/>
-    <%= f.label :category %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <select name="article[category]">
-    <% @categories.each do |category|%>
-   	<option value="<%= category.id %>">
-   		<%= category.name %>
-   	</option>
-      
-    <%end%>
-    </select>
-  </div>
+  <table id='usr'>
+    <tr>
+    <td width="150"><%= f.label :title %></td>
+    <td><%= f.text_field :title%></td></tr>
+    	
 
- <div class="field"><br/>
-    <%= f.label :status %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <select name="article[status]">
+
+
+<tr>
+  <td width="150">  <%= f.label :alias %></td>
+    <td><%= f.text_field :alias %>
+</td>
+</tr>
+
+   <tr>
+    <td width="150"><%= f.label :status %></td>
+    <td><select name="article[status]">
     <% @statuses.each do |status|%>
    	<option value="<%= status.id %>">
    		<%= status.name %>
    	</option>
       
-    <%end%>
-    </select>
-  </div>
   
- <div class="field"><br/>
-    <%= f.label :access %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-    <select name="article[access]">
+    <%end%> 
+    </select> </td></tr>
+  
+  <tr>
+    <td width="150">
+    <%= f.label :access %></td>
+    <td><select name="article[access]">
     <% @accesses.each do |access|%>
    	<option value="<%= access.id %>">
    		<%= access.name %>
    	</option>
       
     <%end%>
-    </select>
-  </div>
-  <div class="field"><br/>
-    <%= f.label :featured %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <%= f.select :featured, Article::FEATURED_TYPES.map{|key, value| [value, key]} %>
-  </div>
-  <div class="field"><br/>
-    <%= f.label :body %>
-    <%= f.text_area :body,:cols => "100"%>
-  </div>
+    </select></td></tr>
+ 
+<tr><td width="150">
+    <%= f.label :featured %></td>
+    <td><%= f.select :featured, Article::FEATURED_TYPES.map{|key, value| [value, key]} %></td>
+    </tr>
+       	 <tr><td width="150">Assing Categories</td><td><div class="center">
+
+
+<% if(action_name == "new") %>
+<%   @categories.each do |ug| %>
+	 <%= f.fields_for :articles_categories, @article.articles_categories.build do |g_fields| %>
+     <%= g_fields.check_box :category_id, {:checked => false}, ug.id %><%= ug.name %>&nbsp;
+     <% end %>
+<%   end 
+   end
+%>
+<%  if(action_name != "new") %>
+      <%= f.fields_for :articles_categories do |g_fields| %>
+      <%= g_fields.hidden_field :category_id %>
+      <%= g_fields.check_box :_destroy, {:checked => g_fields.object.persisted?}, 0, 1 %><%= g_fields.object.category.name %>
+      <% end %>
+      <% @categories.each do |ug| %>
+      <% if(!@article.categories.include?(ug)) %>
+        <%= f.fields_for :articles_categories, @article.articles_categories.build do |g_fields| %>
+        <%= g_fields.check_box :category_id, {:checked => false}, ug.id %><%= ug.name %>&nbsp;
+<%       end
+         end
+        end
+    end
+%>
 </div>
+    </td>
+   
+    </tr>
+  <tr><td width="150">
+    <%= f.label :body %></td>
+    <td><%= f.text_area :body,:cols => "100"%>
+    </td>
+  </tr>
+
+
+ </table>

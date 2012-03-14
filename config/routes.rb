@@ -4,6 +4,7 @@ Bolt::Application.routes.draw do
   match "bolt/dashboard" => "bolt/dashboard#index"
 
   namespace :bolt do
+		resources :articles_categories
 		resources :user_statuses
 		resources :statuses
 		resources :accesses
