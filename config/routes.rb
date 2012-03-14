@@ -1,5 +1,4 @@
 Bolt::Application.routes.draw do
-    
   match "/admin" => redirect("/bolt")
   match "bolt/dashboard" => "bolt/dashboard#index"
 
@@ -11,20 +10,12 @@ Bolt::Application.routes.draw do
   post "bolt/media/delete_file" => "bolt/media#delete_file", :as => "delete_file"
 
   namespace :bolt do
-<<<<<<< HEAD
-		resources :articles_categories
-		resources :user_statuses
-		resources :statuses
-		resources :accesses
-		resources :categories
-		resources :blogs
-=======
+    resources :articles_categories
 	resources :user_statuses
 	resources :statuses
 	resources :accesses
 	resources :categories
 	resources :blogs
->>>>>>> ffdb2c871cc71db2877f8f02105048756f271c76
     resources :articles    
     resources :groups
     resources :users_groups
