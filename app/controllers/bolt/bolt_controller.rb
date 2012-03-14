@@ -197,5 +197,26 @@ module Bolt
         end
       end
     end
+    
+  def create_directory(dirname)   
+    Dir.mkdir(dirname)
+  end
+  
+  def remove_directory(dirname)
+    if(Dir["#{dirname}/*"].empty?)     
+     Dir.rmdir("#{dirname}")
+    else     
+     FileUtils.rm_rf("#{dirname}/.")
+     Dir.delete("#{dirname}")
+    end   
+  end
+  
+  def remove_file(file_path)
+    if(File.exist?(file_path))     
+     File.unlink(file_path)  
+    end
+  end
+  
+  
   end
 end
