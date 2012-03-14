@@ -16,8 +16,7 @@
 	float: left;
 }
 
-#content {
-	position: fixed;
+#content {	
 	font-size: 12px;
 	bottom: 0;
 	left: 0;
@@ -65,8 +64,7 @@
 	position: relative;
 }
 
-#content h2 img, #preview h2 img {
-	position: absolute;
+#content h2 img, #preview h2 img {	
 	top: 0;
 	right: 0;
 	cursor: pointer;

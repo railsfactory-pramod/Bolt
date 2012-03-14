@@ -1,18 +1,26 @@
 Bolt::Application.routes.draw do
-
+    
   match "/admin" => redirect("/bolt")
   match "bolt/dashboard" => "bolt/dashboard#index"
 
+  get "bolt/media/index"
+  get "bolt/media/:id"  => "bolt/media#getfolderdatas", :as => "fetch_folder_data" 
+  post "bolt/media/uploadFile"
+  post "bolt/media/create_folder" => "bolt/media#create_folder", :as => "create_folder"  
+  post "bolt/media/delete_folder" => "bolt/media#delete_folder", :as => "delete_folder"
+  post "bolt/media/delete_file" => "bolt/media#delete_file", :as => "delete_file"
+
   namespace :bolt do
-		resources :user_statuses
-		resources :statuses
-		resources :accesses
-		resources :categories
-		resources :blogs
+	resources :user_statuses
+	resources :statuses
+	resources :accesses
+	resources :categories
+	resources :blogs
     resources :articles    
     resources :groups
     resources :users_groups
     resources :articles
+    resources :media      
 
     resources :users do
       member do
