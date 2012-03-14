@@ -15,11 +15,18 @@ module Bolt
     def show
       @bolt_page_title = 'View article'
       @article = Article.find params[:id]
+      @categories =Category.all
+      @statuses = Status.all
+      @accesses  = Access.all
+
     end
  
     def new
       @bolt_page_title = 'Add a new article'
     	@article = Article.new
+    	@categories =Category.all
+    	@statuses = Status.all
+    	@accesses  = Access.all
     end
 
     def create

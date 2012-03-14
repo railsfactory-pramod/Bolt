@@ -1,0 +1,103 @@
+
+<table><td><%= image_tag("cat.png") %></td><td><font color="blue" size="5">Category Manager: Articles<% for i in 1..100 %>
+     &nbsp;
+<%end%></td>
+
+<td><p style="text-align:right;">new&nbsp;&nbsp;edit&nbsp;&nbsp;delete</p>
+<p style="text-align:right;"><a  href="<%= new_bolt_category_path %>" ><%= image_tag("new.png") %></a>&nbsp;&nbsp;
+<a id="edit" onclick="edit_rec();" href="javascript:void(0)"><%= image_tag("edit.png",:size=>"20x20") %></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a id="delete" href="javascript:void(0)" onclick="delete_rec();"><%= image_tag("delete.png") %></a>
+&nbsp;&nbsp;</td></table><br/><br>
+<%= render :partial=>"title"%>
+
+  
+<style type="text/css">
+table { border: 1px solid black; }
+
+#container {
+  
+    width: 100%; }
+td { border: 3px solid white; }
+th { border: 3px solid white; }
+
+</style>
+
+<script type="text/javascript">
+
+
+
+function delete_rec()
+{
+ if($(".selall:checkbox:checked").length<1)
+{
+alert("please select atleast one record")
+}
+else if(confirm("Are you sure want to delete the record?"))
+{
+       vals=[]
+       j=0
+       var s=$(".selall:checkbox:checked")
+	for(i=0;i<s.length;i++)
+	{		
+		vals[j]=s[i].value;
+		j++;
+	}
+	window.location.href="/bolt/categories/destroy_multiple/"+vals
+
+}
+return false;
+}
+
+function edit_rec()
+{
+if($(".selall:checkbox:checked").length<1)
+{
+alert("please select atleast one record")
+}
+else if($(".selall:checkbox:checked").length>1)
+{
+alert("please select only one record")
+return false;
+}
+else
+{
+	window.location.href="/bolt/categories/"+$(".selall:checkbox:checked").val()+""
+}
+}
+function select_all()
+{
+
+if($(".selall:checkbox:checked").length<1 && $('#chkunchk').attr("checked")==true)
+{	
+	$('.selall').attr("checked", "checked");
+}
+else
+{
+
+$('.selall').attr("checked", false);
+}
+}
+function test()
+{
+totel=$(".selall:checkbox").length;
+tochk=$(".selall:checkbox:checked").length
+if(totel!=tochk)
+{
+	$('#chkunchk').attr("checked", false);
+}
+else
+{
+		$('#chkunchk').attr("checked", true);
+}
+}
+
+</script><br/><br/><br/>
+<h2>Categories</h2>
+
+<%= render :partial => 'bolt/categories/table', :locals => { :categories => @categories } %>
+
+<%= will_paginate @categories %>
+
+<%= content_for :sidebar do %>
+	<li><%= link_to "#{bolt_show_icon "add"}Add a new category".html_safe, new_bolt_category_path %></li>
+<% end %>

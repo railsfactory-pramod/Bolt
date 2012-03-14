@@ -1,0 +1,58 @@
+module Bolt
+  class StatusesController < Bolt::BoltController
+  
+    ## optional filters for defining usage according to Bolt::Users access_levels
+    # before_filter :needs_admin, :except => [:action1, :action2]
+    # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
+  
+    def index
+      @bolt_page_title = 'Statuses'
+  		@statuses = Status.paginate :page => params[:page]
+    end
+  
+    def show
+      @bolt_page_title = 'View status'
+      @status = Status.find params[:id]
+    end
+ 
+    def new
+      @bolt_page_title = 'Add a new status'
+    	@status = Status.new
+    end
+
+    def create
+      @status = Status.new params[:status]
+    
+      if @status.save
+        flash[:notice] = 'Status created'
+        redirect_to bolt_statuses_path
+      else
+        flash.now[:warning] = 'There were problems when trying to create a new status'
+        render :action => :new
+      end
+    end
+  
+    def update
+      @bolt_page_title = 'Update status'
+      
+      @status = Status.find params[:id]
+    
+      if @status.update_attributes params[:status]
+        flash[:notice] = 'Status has been updated'
+        redirect_to bolt_statuses_path
+      else
+        flash.now[:warning] = 'There were problems when trying to update this status'
+        render :action => :show
+      end
+    end
+ 
+    def destroy
+      @status = Status.find params[:id]
+
+      @status.destroy
+      flash[:notice] = 'Status has been deleted'
+      redirect_to bolt_statuses_path
+    end
+  
+  end
+end

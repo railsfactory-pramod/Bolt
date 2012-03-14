@@ -1,35 +1,125 @@
-<h2>Users</h2>
+<table ><td><%= image_tag("user1.png") %></td><td><font color="blue" size="5"> User Manager: Users<% for i in 1..100 %>
+     &nbsp;
+<%end%></td>
 
-<table cellpadding="0" cellspacing="0" id="itemList" class="itemList">
-  <tr>
-    <th>Login</th>
-    <th>Name</th>
-    <th>Status</th>
-    <th>&nbsp;</th>
-  </tr>
+<p style="text-align:right;">new&nbsp;&nbsp;edit&nbsp;&nbsp;delete</p>
+<p style="text-align:right;"><a  href="<%= new_bolt_user_path %>" ><%= image_tag("new.png") %></a>&nbsp;&nbsp;
+<a id="edit" onclick="edit_rec();" href="javascript:void(0)"><%= image_tag("edit.png",:size=>"20x20") %></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a id="delete" href="javascript:void(0)" onclick="delete_rec();"><%= image_tag("delete.png") %></a>
+&nbsp;&nbsp;</p></td></table><br/><br>
+<%= render :partial=>'title'%>
+<br/><br/>
+<h2>Users</h2>
+<style type="text/css">
+table { border: 1px solid black; }
+
+#container {
   
-  <% @bolt_users.each_with_index do |user, index| %>	
-  <tr class="<%= 'even' if index.modulo(2) == 0 %> hover">
-    <td><%= bolt_table_cell_link user.login, bolt_user_path(user) %></td>
-    <td><%= bolt_table_cell_link user.name, bolt_user_path(user) %></td>
-    <td><%= bolt_table_cell_link bolt_get_access_level_text(user.access_level), bolt_user_path(user) %></td>
-    <td class="delete">
-      <% if user.is_admin? == false || Bolt::User.has_more_than_one_admin %>
-      <% confirm_message = "Are you sure you want to delete #{user.name}?" %>
-      
-      <% if user.id == @session_user.id %>
-      <% confirm_message += "\n\nWARNING: This is your user account. You will be logged out if you proceed." %>
-      <% end %>
-      
-      <%= link_to(bolt_show_row_icon("delete"), bolt_user_path(user), :method => :delete, :confirm => confirm_message) %>
-      <% end %>
-    </td>
+    width: 100%; }
+td { border: 3px solid white; }
+th { border: 3px solid white; }
+
+</style>
+<script type="text/javascript">
+
+
+
+function delete_rec()
+{
+ if($(".selall:checkbox:checked").length<1)
+{
+alert("please select atleast one record")
+}
+else if(confirm("Are you sure want to delete the record?"))
+{
+       vals=[]
+       j=0
+       var s=$(".selall:checkbox:checked")
+	for(i=0;i<s.length;i++)
+	{		
+		vals[j]=s[i].value;
+		j++;
+	}
+	window.location.href="/bolt/users/destroy_multiple/"+vals
+
+}
+return false;
+}
+
+function edit_rec()
+{
+if($(".selall:checkbox:checked").length<1)
+{
+alert("please select atleast one record")
+}
+else if($(".selall:checkbox:checked").length>1)
+{
+alert("please select only one record")
+return false;
+}
+else
+{
+	window.location.href="/bolt/users/"+$(".selall:checkbox:checked").val()+""
+}
+}
+function select_all()
+{
+
+if($(".selall:checkbox:checked").length<1 && $('#chkunchk').attr("checked")==true)
+{	
+	$('.selall').attr("checked", "checked");
+}
+else
+{
+
+$('.selall').attr("checked", false);
+}
+}
+function test()
+{
+totel=$(".selall:checkbox").length;
+tochk=$(".selall:checkbox:checked").length
+if(totel!=tochk)
+{
+	$('#chkunchk').attr("checked", false);
+}
+else
+{
+		$('#chkunchk').attr("checked", true);
+}
+}
+
+</script>
+<table id="container" bgcolor="Cornsilk" align="left">
+  <tr>
+    
+  <td><input type="checkbox" id="chkunchk"  onclick="select_all()"/></td>
+    <td><font color="blue">Name</td>
+    <td><font color="blue">Login name</td>
+    <td><font color="blue">User Groups</td>
+    <td><font color="blue">Email</td>
+    <td><font color="blue">Last visit date</td>
+    <td><font color="blue">Registration date</td>
+    <td><font color="blue">ID</td>  	
   </tr>
-  <% end %>
+
+<% @bolt_users.each do |bolt_user| %>
+  <tr>
+     <td style="px"><input class='selall'  type='checkbox' id='chk_<%=bolt_user.id%>'  name ='checkbox' onclick="test()"  value='<%=bolt_user.id %>'></td>
+    <td><%= bolt_user.name %></td>
+    <td><%= bolt_user.login_name %></td>
+    <td><% bolt_user.groups.each do |g| %>
+		<%= g.name.titleize %>,
+	     <% end %>
+    </td>
+     <td><%= bolt_user.email %></td>
+    <td><%= bolt_user.last_visit_date %></td>
+    <td><%= bolt_user.registration_date %></td>
+   <td><%= bolt_user.id %></td>
+ </tr>
+<% end %>
+
 </table>
 
 <%#= will_paginate @users %>
 
-<%= content_for :sidebar do %>
-<li><%= link_to "#{bolt_show_icon('add')}Add a new user".html_safe, new_bolt_user_path %></li>
-<% end %>

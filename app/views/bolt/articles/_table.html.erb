@@ -1,4 +1,4 @@
-<table id="container" bgcolor="Cornsilk" align="left">
+<table id="container" bgcolor="Cornsilk" align="left" width="100%">
   <tr>
   	<td><input type="checkbox" id="chkunchk"  onclick="select_all()"/></td>
     <td><font color="blue">Title</font></td>
@@ -18,8 +18,8 @@
     <td><%= article.alias %></td>
     <td><%= article.category %></td>
     <td><%= article.status %></td>
-    <td><%= article.access %></td>
-    <td><%= article.featured %></td>
+    <td><%= article.access%></td>
+    <td><%= Article::FEATURED_TYPES[article.featured] %></td>
     
   </tr>
 <% end %>

@@ -1,4 +1,5 @@
-<fieldset class="biswa">
+
+<div class="tab">
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -19,17 +20,40 @@
     <%= f.label :alias %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <%= f.text_field :alias %>
   </div>
-  <div class="field"><br/>
-    <%= f.label :category %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <%= f.text_field :category%>
+ <div class="field"><br/>
+    <%= f.label :category %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <select name="article[category]">
+    <% @categories.each do |category|%>
+   	<option value="<%= category.id %>">
+   		<%= category.name %>
+   	</option>
+      
+    <%end%>
+    </select>
   </div>
-  <div class="field"><br/>
-    <%= f.label :status %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <%= f.select :status, Article::STATUS_TYPES.map{|key, value| [value, key]} %>
+
+ <div class="field"><br/>
+    <%= f.label :status %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <select name="article[status]">
+    <% @statuses.each do |status|%>
+   	<option value="<%= status.id %>">
+   		<%= status.name %>
+   	</option>
+      
+    <%end%>
+    </select>
   </div>
-  <div class="field"><br/>
+  
+ <div class="field"><br/>
     <%= f.label :access %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-   <%= f.select :access, Article::ACCESS_TYPES.map{|key, value| [value, key]} %>
+    <select name="article[access]">
+    <% @accesses.each do |access|%>
+   	<option value="<%= access.id %>">
+   		<%= access.name %>
+   	</option>
+      
+    <%end%>
+    </select>
   </div>
   <div class="field"><br/>
     <%= f.label :featured %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -39,4 +63,4 @@
     <%= f.label :body %>
     <%= f.text_area :body,:cols => "100"%>
   </div>
-</fieldset>
+</div>

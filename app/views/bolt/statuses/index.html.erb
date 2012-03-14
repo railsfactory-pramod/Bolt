@@ -1,0 +1,10 @@
+
+<h2>Statuses</h2>
+
+<%= render :partial => 'bolt/statuses/table', :locals => { :statuses => @statuses } %>
+
+<%= will_paginate @statuses %>
+
+<%= content_for :sidebar do %>
+	<li><%= link_to "#{bolt_show_icon "add"}Add a new status".html_safe, new_bolt_status_path %></li>
+<% end %>

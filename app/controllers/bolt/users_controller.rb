@@ -83,6 +83,18 @@ module Bolt
         format.json { head :no_content }
       end
     end
-        
+    
+    def destroy_multiple
+      ids= params[:id]
+      idarr=ids.split(',')
+      idarr.each do |del|
+        @bolt_user = User.find(del)
+        @bolt_user.destroy
+      end
+      respond_to do |format|
+        format.html { redirect_to :back  }
+       # format.json { head :ok }
+      end
+    end
+   end
   end
-end

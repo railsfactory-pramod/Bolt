@@ -26,6 +26,16 @@
 	z-index: 10;
 	overflow: auto;
 }
+#content2 {
+	
+	font-size: 12px;
+	bottom: 0;
+	left: 0;
+	right: 318px;
+	background: #fff;
+	z-index: 10;
+	overflow: auto;
+}
 
 #content p {
 	font-size: 12px;

@@ -1,56 +1,65 @@
 <h2>Add a new user</h2>
 
-<%= form_for @bolt_user do |form| %>
 
-<div class="tfContainer">
-  <%= bolt_text_field form, @bolt_user, :login, {:size => 30} %>
-</div>
+<%= form_for @bolt_user do |f| %>
+<div class="tab">
+  <% if @bolt_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bolt_user.errors.count, "error") %> prohibited this bolt_user from being saved:</h2>
 
-<div class="tfContainer tfContainerSecond">
-  <%= bolt_text_field form, @bolt_user, :name %>
-</div>
+      <ul>
+      <% @bolt_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table id='usr'>
+<tr>
+	<td width='150'><%= f.label :login %></td>
+	<td><%= f.text_field :login, :class=> "inputfield" %></td>    
+</tr>
 
-<div class="tfContainer">
-  <%= bolt_text_field form, @bolt_user, :email %>
-</div>
+<tr>
+	<td width='150'><%= f.label :name %></td>
+	<td><%= f.text_field :name, :class=> "inputfield" %></td>    
+</tr>
 
-<div class="tfContainer tfContainerSecond">
-  <%= bolt_time_zone_select form, @bolt_user, :time_zone, ActiveSupport::TimeZone.us_zones %>
-</div>
+<tr>
+	<td width='150'><%= f.label :email %></td>
+	<td><%= f.text_field :email, :class=> "inputfield" %></td>    
+</tr><tr>
+	<td width='150'><%= f.label :access_level %></td>
+	<td><%= f.text_field :access_level, :class=> "inputfield" %></td>    
+</tr><tr>
+	<td width='150'><%= f.label :password %></td>
+	<td><%= f.password_field :password, :class=> "inputfield" %></td>    
+</tr>
+<tr>
+	<td width='150'><%= f.label :password_confirmation %></td>
+	<td><%= f.password_field :password_confirmation, :class=> "inputfield" %></td>    
+</tr>	
+</table>
+  
+  <div>Assing Group</div>
+  <% @groups.each do |ug| 
+  if(!@groups.include?(ug.id))
+%>
+<%= f.fields_for :users_groups, @bolt_user.users_groups.build do |g_fields| %>
+<%= g_fields.check_box :group_id, {:checked => false}, ug.id %><%= ug.name %><br/><br/>
+<%   end
+   end
+%>
+<%end%>
 
-<div class="tfContainer">
-  <%= bolt_select form, @bolt_user, :access_level, bolt_get_access_level_array, {:bolt_label => "Status"} %>
-</div>
 
-<div class="tfContainer tfContainerSecond">
-</div>
+  
+  
 
-<div class="tfContainer">
-  <%= bolt_password_field form, @bolt_user, :password, {:bolt_label => "Password"} %>
-</div>
-
-<div class="tfContainer tfContainerSecond">
-  <%= bolt_password_field form, @bolt_user, :password_confirmation, {:bolt_label => "Repeat password"} %>
-</div>
-
-<div class="clearer"></div>
-
-<div>Assing Group</div>
-
-<% @groups.each do |ug| %>    
-<%= form.fields_for :users_groups do |g_fields| %>
-<%= g_fields.check_box :group_id, {:checked => false}, ug.id %><%= ug.name %><br/>
-<% end %>
-<% end %>
-
-<div class="clearer"></div>
-
-<p class="submits">
-  <%= form.submit "Add new user", :class => "update" %>
+  
+  <p class="submits">
+  <%= link_to 'Cancel', bolt_users_path, :class => 'cancel' %> or
+  <%= f.submit "Add new user", :class => "update" %>
 </p>
+  <%end%>
 
-<% end %>
-
-<%= content_for :sidebar do %>
-<li><%= link_to "#{bolt_show_icon('table')}Back to list".html_safe, bolt_users_path %></li>
-<% end %>

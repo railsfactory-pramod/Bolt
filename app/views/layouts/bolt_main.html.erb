@@ -22,9 +22,20 @@
       {
         background-color:Cornsilk;
       }
+      p.margin1
+      {
+        background-color:#0174DF;
+
+
+padding-top:-3px
+;
+padding-bottom:-3px;
+;
+
+      }
       
     </style>
-
+    <title>BOLT</title>
     <%= stylesheet_link_tag "scaffold" %>
     <%= stylesheet_link_tag "depot" , :media => "all" %>
     <%= stylesheet_link_tag "imagebubbles" , :media => "all" %>
@@ -35,20 +46,26 @@
     <%= javascript_include_tag "jquery" %>
         
     </head>
-  <body>
-    <div id="header">
-<p class="margin">
-      <a href="#">Site</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#">Users</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#">News</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <body id="store">
+<div id="banner">
+<%= image_tag("logo.png",:size => '100x32' ) %>
+<%= @page_title || "Administration" %>
+</div>
+    <p class="margin1">&nbsp;</p>
+    <table  width="100%">
+  
+<p class="margin"><td>
+     <a href="#"><h5>Site</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <a href="#">Users</a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
+<a href="#">News</a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
+     <a href="#">Contact</h5></a>
+         <p align="right"><a  href="/bolt/user_session" data-method="delete" rel="nofollow"><%= image_tag("logout.png") %></a></p></td>
     </p>
-    <p align="right"><a href="/bolt/user_session" data-method="delete" rel="nofollow"><%= image_tag("logout.png") %></a></p>
-    <a  href="<%= bolt_dashboard_path %>" >Dashboard</a>&nbsp;&nbsp;
-    <a  href="<%= bolt_users_path %>" >Users</a>&nbsp;&nbsp;
-    <a  href="<%= bolt_articles_path %>" >Article</a>&nbsp;&nbsp;
-    <a  href="<%= bolt_groups_path %>" >Groups</a>&nbsp;&nbsp; 
+</table>
+   
+    
       
+    </div>
     
     <div id="content">
       <div id="data">

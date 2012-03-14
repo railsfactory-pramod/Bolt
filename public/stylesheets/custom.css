@@ -38,8 +38,17 @@ div.statisticFrame div.statisticValue {
 	text-align: center;
 }
 
-.tab, .comment{
+.tab, .comment, .tab-b{
     width: 100%;
+    padding: 100px;
+}
+
+.td-p {
+	padding: 5px;
+}
+
+.tab-b{
+	border: 1px;
 }
 .div-p-b, .div-p-ntb, .div-p-nbb{
     padding: 5px;
