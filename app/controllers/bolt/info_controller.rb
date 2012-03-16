@@ -2,15 +2,13 @@ module Bolt
   class InfoController < Bolt::BoltController
     layout "default_site"
     def show      
-      if(request.url.match("categories"))       
-        if(!params[:cat_name].nil?)
-          if(!params[:cat_name].match(/article/i).nil?)
-            if(!params[:id].nil?)
-              @article = Article.find(params[:id].to_i)
-            end
-          else
+      if(!params[:cat_name].nil?)
+        if(!params[:cat_name].match(/article/i).nil?)
+          if(!params[:id].nil?)
+            @article = Article.find(params[:id].to_i)
           end
-        end
+        else
+        end      
       else
         @categories = Category.all
         @top_menu = Page.parent_menu      
