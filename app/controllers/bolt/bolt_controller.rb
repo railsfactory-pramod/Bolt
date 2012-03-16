@@ -17,7 +17,7 @@ module Bolt
     helper_method :current_user_session, :current_user
     
     #Authorize the user for all his actions except on new and create actions of users controller as users can be created without having to login 
-    before_filter :authorise
+    before_filter :authorise, :if => Proc.new{|controller| controller_name != "info"}
     
 
     #Check if the device is valid for all the api requests

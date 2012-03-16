@@ -9,7 +9,7 @@
 	    <% if(!cat.articles.blank?) %>
             <% cat.articles.each do |article| %>
 	    <ul class="submenu">
-	      <li><a href="/Articles/<%= article.id.to_s+'-'+article.title%>"><%= article.title %></a></li>	      
+	      <li><a href="<%= ambiguous_section_url(:cat_name => 'Article', :id => article.id, :title => format_url_id(article.title))%>"><%= article.title %></a></li>	      
 	    </ul>
 	    
 	    <% end %>	    	    
@@ -20,7 +20,7 @@
 	  </ul>	 
    	<% else %>
 	<ul class="navmenu">
-	  <li><div class="menutop"><a href="/categories/articles">Articles</a><div class="toggle">+</div></div>
+	  <li><div class="menutop"><a href="/articles">Articles</a><div class="toggle">+</div></div>
 	  <li><div class="menutop"><a href="/categories/photos">Photos</a><div class="toggle">+</div></div>	    
 	</ul>
 	<% end %>  		  

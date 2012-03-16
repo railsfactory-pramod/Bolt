@@ -4,12 +4,11 @@ class Article < ActiveRecord::Base
   
   
   belongs_to :status
-   belongs_to :access
+  belongs_to :access
   has_many :articles_categories
   has_many :categories, :through => :articles_categories, :dependent => :destroy
   accepts_nested_attributes_for :articles_categories, :reject_if => proc { |attributes| attributes['category_id'].blank? || attributes['category_id'].to_i == 0}, :allow_destroy => true
-    
- 
+     
  ######### for FEATURED ########
  
  NO =0

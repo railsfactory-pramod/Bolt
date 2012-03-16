@@ -1,7 +1,21 @@
+<table ><tr><td><%= image_tag("page_manager.png") %></td><td><font color="blue" size="6"> Page Manager: Pages<% for i in 1..100 %>
+     &nbsp;
+<%end%></td>
+
+<td><p style="text-align:right;">new&nbsp;&nbsp;edit&nbsp;&nbsp;delete</p>
+<p style="text-align:right;"><a  href="<%=new_bolt_page_path%>" ><%= image_tag("new.png") %></a>&nbsp;&nbsp;
+<a id="edit" onclick="edit_rec();" href="javascript:void(0)"><%= image_tag("edit.png",:size=>"20x20") %></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a id="delete" href="javascript:void(0)" onclick="delete_rec();"><%= image_tag("delete.png") %></a>
+&nbsp;&nbsp;</p></td></tr></table><br/>
+
 
 <h2>Pages</h2>
 
+
 <%= render :partial => 'bolt/pages/table', :locals => { :pages => @pages } %>
+
+<style type="text/css">
+table { border: 1px solid black; 
 
 <%= will_paginate @pages %>
 

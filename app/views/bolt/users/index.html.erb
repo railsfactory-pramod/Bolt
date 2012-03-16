@@ -22,7 +22,76 @@ td { border: 3px solid white; }
 th { border: 3px solid white; }
 
 </style>
+<script type="text/javascript">
 
+
+
+function delete_rec()
+{
+ if($(".selall:checkbox:checked").length<1)
+{
+alert("please select atleast one record")
+}
+else if(confirm("Are you sure want to delete the record?"))
+{
+       vals=[]
+       j=0
+       var s=$(".selall:checkbox:checked")
+	for(i=0;i<s.length;i++)
+	{		
+		vals[j]=s[i].value;
+		j++;
+	}
+	window.location.href="/bolt/users/destroy_multiple/"+vals
+
+}
+return false;
+}
+
+function edit_rec()
+{
+if($(".selall:checkbox:checked").length<1)
+{
+alert("please select atleast one record")
+}
+else if($(".selall:checkbox:checked").length>1)
+{
+alert("please select only one record")
+return false;
+}
+else
+{
+	window.location.href="/bolt/users/"+$(".selall:checkbox:checked").val()+""
+}
+}
+function select_all()
+{
+
+if($(".selall:checkbox:checked").length<1 && $('#chkunchk').attr("checked")==true)
+{	
+	$('.selall').attr("checked", "checked");
+}
+else
+{
+
+$('.selall').attr("checked", false);
+}
+}
+function test()
+{
+totel=$(".selall:checkbox").length;
+tochk=$(".selall:checkbox:checked").length
+if(totel!=tochk)
+{
+	$('#chkunchk').attr("checked", false);
+}
+else
+{
+		$('#chkunchk').attr("checked", true);
+}
+}
+
+</script>
 <table id="container" bgcolor="Cornsilk" align="left">
   <tr>
     

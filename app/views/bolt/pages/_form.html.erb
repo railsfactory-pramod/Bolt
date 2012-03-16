@@ -3,8 +3,10 @@
 </div>
 
 <div>
-  <%= text_field_tag "parent" %>
+  Parent: &nbsp;<br/>
+  <%= select_tag "parent", options_from_collection_for_select(Page.parent_menu, "id", "title"), {:include_blank => "None"} %>
 </div>
+<br/>
 
 <div id="additional_options" style="display: none;">
 <div class="tfContainer">
