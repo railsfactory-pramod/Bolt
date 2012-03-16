@@ -1,4 +1,4 @@
-<h2>View user</h2>
+<br/><br/><br/><h2>View user</h2>
 
 <%= form_for @bolt_user do |f| %>
 <div class="tab">
@@ -27,10 +27,9 @@
 <tr>
 	<td width='150'><%= f.label :email %></td>
 	<td><%= f.text_field :email, :class=> "inputfield" %></td>    
-</tr><tr>
-	<td width='150'><%= f.label :access_level %></td>
-	<td><%= f.text_field :access_level, :class=> "inputfield" %></td>    
-</tr><tr>
+</tr>
+
+<tr>
 	<td width='150'><%= f.label :password %></td>
 	<td><%= f.password_field :password, :class=> "inputfield" %></td>    
 </tr>

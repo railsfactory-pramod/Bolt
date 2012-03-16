@@ -53,6 +53,20 @@ module Bolt
       flash[:notice] = 'Status has been deleted'
       redirect_to bolt_statuses_path
     end
+    
+    def destroy_multiple
+      ids= params[:id]
+      idarr=ids.split(',')
+      idarr.each do |del|
+        @blog = Status.find(del)
+        @blog.destroy
+      end
+      respond_to do |format|
+        format.html { redirect_to :back  }
+        # format.json { head :ok }
+      end
+   end
+      
   
   end
 end

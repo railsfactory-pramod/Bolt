@@ -17,7 +17,8 @@ module Bolt
     helper_method :current_user_session, :current_user
     
     #Authorize the user for all his actions except on new and create actions of users controller as users can be created without having to login 
-    before_filter :authorise, :if => Proc.new {|c| controller_name != "users" && (action_name != "new" || action_name != "create" || action_name != "reset_password")}
+    before_filter :authorise
+    
 
     #Check if the device is valid for all the api requests
     before_filter :is_device_valid?, :if => Proc.new {|c|
@@ -88,8 +89,10 @@ module Bolt
             render :json => {:success => false, :response_code => 1, :messsage => "You are not authorized."}
           }
         end
+        else
+          redirect_to new_bolt_user_session_url
+        end
       end
-    end
     
     def needs_admin_or_current_user
       unless @session_user.is_admin? || params[:id].to_i == @session_user.id
@@ -130,7 +133,7 @@ module Bolt
         return render :status => 200, :json => "{\"responsecode\": 1, \"responseMessage\": \"#{error_message}\"}"
       end
     end
-    
+ 
     def process_device(devices, udid)
       is_current_device_owned = false
       if(!current_user.nil?)
@@ -140,7 +143,7 @@ module Bolt
             return true if(is_current_device_owned)
           end
           if(current_user.devices.size >= $MAX_DEVICES_PER_USER && !is_current_device_owned)
-            
+                      
             render :json => {:success => false, :responsecode => 1, :message => "You have exceeded the maximum number of devices you can log in from. Please select one of the devices you currently own." }
             return false
           end

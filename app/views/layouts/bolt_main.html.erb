@@ -10,11 +10,13 @@
     <% end %>
     
     <% bolt_config_javascript_includes.each do |javascript| %>
+    
     <%= javascript_include_tag(javascript) %>
     <% end %>
     
     <%= javascript_include_tag "http://js.nicedit.com/nicEdit-latest.js" %>
-    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>    
+    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>   
+    
     <%= csrf_meta_tag %>
 
     <style type="text/css">
@@ -35,59 +37,19 @@ padding-bottom:-3px;
       }
       
     </style>
-    
-    <style type="text/css">
-
-		.naviagtion ul {
-			font-family: Arial, Verdana;
-			font-size: 14px;
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
-			.naviagtion ul li {
-			display: block;
-			position: relative;
-			float: left;
-		}
-			.naviagtion li ul { display: none; }
-			.naviagtion ul li a {
-			display: block;
-			text-decoration: none;
-			color: #ffffff;
-			border-top: 1px solid #ffffff;
-			padding: 5px 15px 5px 15px;
-			background:#9966CC ;
-			margin-left: 1px;
-			white-space: nowrap;
-		}
-		
-			.naviagtion ul li a:hover { background:#9966CC; }
-			.naviagtion li:hover ul { 
-			display: block; 
-			position: absolute;
-		}
-			.naviagtion li:hover li { 
-			float: none;
-			font-size: 11px;
-		}
-			.naviagtion li:hover a { background:#9966CC; }
-			.naviagtion li:hover li a:hover { background:#9966CC; }
-
-	</style>	
-    
-    
-    
+     
     <title>BOLT</title>
     <%= stylesheet_link_tag "scaffold" %>
-    <%= stylesheet_link_tag "depot" , :media => "all" %>
-    <%= stylesheet_link_tag "imagebubbles" , :media => "all" %>
+  
     
-    <%= javascript_include_tag :defaults %>
+    <%= stylesheet_link_tag "depot" , :media => "all" %>
+
+
     
 
     
-     <%= stylesheet_link_tag  "jquery.treeview.css"%>    
+     <%= stylesheet_link_tag  "jquery.treeview.css"%> 
+       <%= stylesheet_link_tag "dropdown"%>   
     <%= javascript_include_tag "jquery" %>
     <%= javascript_include_tag "jquery.treeview.js" %>
        
@@ -103,43 +65,43 @@ padding-bottom:-3px;
   
 <p class="margin"><td><div class='naviagtion'><ul id="menu">
      	
-			<li><a href="localhost:3000">Site</a>
-				<ul>
-     			  <li><a href="/bolt/dashboard">Dashboard</a></li>
-     		   </ul>	
-     		</li>
-     		
-		    <li><a href="/bolt/users">Users</a> 
-		      <ul>
+			<li><a href="<%= root_path %>">Site</a>
+	    <ul>
+     	      <li><a href="<%= bolt_dashboard_path %>">Dashboard</a></li>
+     	    </ul>	
+     	  </li>
+     	  
+	  <li><a href="<%= bolt_users_path %>">Users</a> 
+	    <ul>
 
-		      	<li><a href="/bolt/users">User Manager</a></li>
-		        <li><a href="/bolt/groups">Group Managaer</a></li> 
-		        
-		      </ul> 
-		    </li> 
-		    <li><a href="">Content</a> 
-		      <ul> 
-		        <li><a href="/bolt/articles">Article Manager</a></li> 
-		        <li><a href="/bolt/categories">Category Manager</a></li> 
-		        <li><a href="/bolt/media">Media Manager</a></li> 
-		        
-		      </ul> 
-		    </li>
+	      <li><a href="<%= bolt_users_path %>">User Manager</a></li>
+	      <li><a href="<%= bolt_groups_path %>">Group Managaer</a></li> 
 
-            <li><a href="#">Pages</a> 
-		      <ul> 
-		        <li><a href="#">I don't Know</a></li> 
-		      </ul> 
-		    </li> 
-		    
-		    <li><a href="#">Help</a> 
-		      <ul> 
-		        <li><a href="#">Rails Help</a></li> 
-		        <li><a href="#">Official Support Forum </a></li> 
-		        
-		      </ul> 
-		    </li> 
-		</ul>	
+	    </ul> 
+	  </li> 
+	  <li><a href="">Content</a> 
+	    <ul> 
+	      <li><a href="<%= bolt_articles_path %>">Article Manager</a></li> 
+	      <li><a href="<%= bolt_categories_path %>">Category Manager</a></li> 
+	      <li><a href="<%= bolt_media_path %>">Media Manager</a></li> 
+
+	    </ul> 
+	  </li>
+
+          <li><a href="<%= bolt_pages_path %>">Pages</a> 
+	    <ul> 
+	      <li><a href="<%= bolt_pages_path %>">Page Manager</a></li> 
+	    </ul> 
+	  </li> 
+
+	  <li><a href="#">Help</a> 
+	    <ul> 
+	      <li><a href="#">Rails Help</a></li> 
+	      <li><a href="#">Official Support Forum </a></li> 
+
+	    </ul> 
+	  </li> 
+	</ul>		
          <p align="right"><a  href="/bolt/user_session" data-method="delete" rel="nofollow"><%= image_tag("logout.png") %></a></p></div></td>
     </p>
     

@@ -19,8 +19,9 @@
    <td><% article.categories.each do |g| %>
 		<%= g.name.titleize %>,
 	     <% end %>
-    <td><%= article.status %></td>
-    <td><%= article.access%></td>
+   </td>
+    <td><%= article.status.name %></td>
+    <td><%= article.access.name%></td>
     <td><%= Article::FEATURED_TYPES[article.featured] %></td>
     
   </tr>

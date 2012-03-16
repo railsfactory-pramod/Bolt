@@ -24,6 +24,7 @@ class CreateBoltUsers < ActiveRecord::Migration
       t.string    :login, :null => false
       
 
+     
       t.integer   :access_level, :null => false, :default => 0
       t.string    :crypted_password, :null => false
       t.string    :password_salt, :null => false

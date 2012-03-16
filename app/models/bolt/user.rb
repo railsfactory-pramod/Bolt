@@ -48,7 +48,7 @@ module Bolt
     end
     
     def is_admin?
-      access_level == $BOLT_USER_ACCESS_LEVEL_ADMIN
+      users_groups.include?(Group.first)
     end
     
   end

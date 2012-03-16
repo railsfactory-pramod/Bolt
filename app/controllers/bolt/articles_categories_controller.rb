@@ -53,6 +53,19 @@ module Bolt
       flash[:notice] = 'Articles category has been deleted'
       redirect_to bolt_articles_categories_path
     end
+   def destroy_multiple
+      ids= params[:id]
+      idarr=ids.split(',')
+      idarr.each do |del|
+        @blog = ArticlesCategory.find(del)
+        @blog.destroy
+      end
+      respond_to do |format|
+        format.html { redirect_to :back  }
+        # format.json { head :ok }
+      end
+   end
+  
   
   end
 end

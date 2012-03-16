@@ -60,19 +60,18 @@ module Bolt
       flash[:notice] = 'Blog has been deleted'
       redirect_to :back
     end
-     def destroy_multiple
-    ids= params[:id]
-    idarr=ids.split(',')
-    idarr.each do |del|
-      @blog = Blog.find(del)
-      @blog.destroy
-    end
-    respond_to do |format|
-      format.html { redirect_to :back  }
-      # format.json { head :ok }
-    end
-    
-  end
+    def destroy_multiple
+      ids= params[:id]
+      idarr=ids.split(',')
+      idarr.each do |del|
+        @blog = Blog.find(del)
+        @blog.destroy
+      end
+      respond_to do |format|
+        format.html { redirect_to :back  }
+        # format.json { head :ok }
+      end
+   end
   
   end
 end

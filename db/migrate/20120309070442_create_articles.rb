@@ -3,9 +3,8 @@ class CreateArticles < ActiveRecord::Migration
     create_table :articles do |t|
       t.string :title
       t.string :alias
-      t.integer :category
-      t.integer :status
-      t.integer :access
+      t.integer :status_id
+      t.integer :access_id
       t.integer :featured
       t.text :body
       

@@ -1,4 +1,37 @@
+<script type="text/javascript" src="/assets/javascript_functions.js" ></script>
+<table><td><%= image_tag("access.png") %></td><td><font color="blue" size="5">Access Manager: Articles<% for i in 1..100 %>
+     &nbsp;
+<%end%></td>
 
+<td><p style="text-align:right;">new&nbsp;&nbsp;edit&nbsp;&nbsp;delete</p>
+<p style="text-align:right;"><a  href="<%= new_bolt_access_path %>" ><%= image_tag("new.png") %></a>&nbsp;&nbsp;
+<a id="edit"  href="javascript:void(0)" onclick="edit_rec('/bolt/accesses/');"><%= image_tag("edit.png",:size=>"20x20") %></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a id="delete" href="javascript:void(0)" onclick="delete_rec('/bolt/accesses/destroy_multiple/');"><%= image_tag("delete.png") %></a>
+&nbsp;&nbsp;</td></table><br/><br>
+
+<%= render :partial=>"title"%>
+<br/><br/>
+  
+  
+<style type="text/css">
+table { border: 1px solid black; }
+
+#container {
+  
+    width: 100%; }
+td { border: 3px solid white; }
+th { border: 3px solid white; }
+
+</style>
+
+
+
+
+
+
+
+
+</script><br/><br/><br/>
 <h2>Accesses</h2>
 
 <%= render :partial => 'bolt/accesses/table', :locals => { :accesses => @accesses } %>

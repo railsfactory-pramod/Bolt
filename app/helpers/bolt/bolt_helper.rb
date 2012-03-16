@@ -204,6 +204,5 @@ module Bolt
       
       html += "</p>\n<p>#{form_tag}</p>"
     end
-        
   end
 end
