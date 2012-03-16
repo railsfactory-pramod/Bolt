@@ -61,11 +61,17 @@ padding-bottom:-3px;
 <%= @page_title || "Administration" %>
 </div>
    
-    <table  width="100%" height="1%"  >
+<table  width="100%" height="1%"  >
   
+<<<<<<< HEAD
 <p class="margin"><td><div class='naviagtion'><ul id="menu">
      	
 			<li><a href="<%= root_path %>">Site</a>
+=======
+  <p class="margin"><td><div class='naviagtion'><ul id="menu">
+     	  
+	  <li><a href="<%= root_path %>">Site</a>
+>>>>>>> 1f44402bd1e211f7414f4efd861160ef0e705217
 	    <ul>
      	      <li><a href="<%= bolt_dashboard_path %>">Dashboard</a></li>
      	    </ul>	
@@ -73,10 +79,17 @@ padding-bottom:-3px;
      	  
 	  <li><a href="<%= bolt_users_path %>">Users</a> 
 	    <ul>
+<<<<<<< HEAD
 
 	      <li><a href="<%= bolt_users_path %>">User Manager</a></li>
 	      <li><a href="<%= bolt_groups_path %>">Group Managaer</a></li> 
 
+=======
+	      
+	      <li><a href="<%= bolt_users_path %>">User Manager</a></li>
+	      <li><a href="<%= bolt_groups_path %>">Group Managaer</a></li> 
+	      
+>>>>>>> 1f44402bd1e211f7414f4efd861160ef0e705217
 	    </ul> 
 	  </li> 
 	  <li><a href="">Content</a> 
@@ -84,15 +97,23 @@ padding-bottom:-3px;
 	      <li><a href="<%= bolt_articles_path %>">Article Manager</a></li> 
 	      <li><a href="<%= bolt_categories_path %>">Category Manager</a></li> 
 	      <li><a href="<%= bolt_media_path %>">Media Manager</a></li> 
+<<<<<<< HEAD
 
 	    </ul> 
 	  </li>
 
+=======
+	      
+	    </ul> 
+	  </li>
+	  
+>>>>>>> 1f44402bd1e211f7414f4efd861160ef0e705217
           <li><a href="<%= bolt_pages_path %>">Pages</a> 
 	    <ul> 
 	      <li><a href="<%= bolt_pages_path %>">Page Manager</a></li> 
 	    </ul> 
 	  </li> 
+<<<<<<< HEAD
 
 	  <li><a href="#">Help</a> 
 	    <ul> 
@@ -108,6 +129,23 @@ padding-bottom:-3px;
 </table>
     
    
+=======
+	  
+	  <li><a href="#">Help</a> 
+	    <ul> 
+	      <li><a href="#">Rails Help</a></li> 
+	      <li><a href="#">Official Support Forum </a></li> 
+	      
+	    </ul> 
+	  </li> 
+	</ul>	
+        <p align="right"><a  href="/bolt/user_session" data-method="delete" rel="nofollow"><%= image_tag("logout.png") %></a></p></div></td>
+  </p>
+  
+</table>
+
+
+>>>>>>> 1f44402bd1e211f7414f4efd861160ef0e705217
     
       
     </div>
