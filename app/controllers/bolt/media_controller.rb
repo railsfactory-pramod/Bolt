@@ -3,7 +3,7 @@ class MediaController < Bolt::BoltController
   # GET /media
   # GET /media.json
   def index
-    @media = Medium.all
+    @media = Medium.where(:parent_id => 0)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @media }
