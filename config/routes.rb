@@ -8,7 +8,9 @@ Bolt::Application.routes.draw do
   post "bolt/media/create_folder" => "bolt/media#create_folder", :as => "create_folder"  
   post "bolt/media/delete_folder" => "bolt/media#delete_folder", :as => "delete_folder"
   post "bolt/media/delete_file" => "bolt/media#delete_file", :as => "delete_file"
-
+  get "/categories/:cat_name/:id-:title" => "bolt/info#show", :as => :ambiguous_section, :defaults => {:id => nil, :cat_name => nil, :title => nil}
+  get "/:id" => "bolt/info#show", :as => :page, :defaults => {:id => "Home", :cat => nil}
+  
   namespace :bolt do
     resources :page_sections
     resources :pages
@@ -33,8 +35,7 @@ Bolt::Application.routes.draw do
     resource :user_session
     resource :password_reset, :only => [:create, :edit, :update]
     
-    match "/blank" => "bolt#blank"
-    root :to => "bolt#index"
+    match "/blank" => "bolt#blank"    
   end
 
   # The priority is based upon order of creation:

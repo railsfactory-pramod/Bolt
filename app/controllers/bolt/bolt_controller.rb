@@ -130,7 +130,7 @@ module Bolt
         return render :status => 200, :json => "{\"responsecode\": 1, \"responseMessage\": \"#{error_message}\"}"
       end
     end
- 
+    
     def process_device(devices, udid)
       is_current_device_owned = false
       if(!current_user.nil?)
@@ -140,7 +140,7 @@ module Bolt
             return true if(is_current_device_owned)
           end
           if(current_user.devices.size >= $MAX_DEVICES_PER_USER && !is_current_device_owned)
-                      
+            
             render :json => {:success => false, :responsecode => 1, :message => "You have exceeded the maximum number of devices you can log in from. Please select one of the devices you currently own." }
             return false
           end
@@ -216,6 +216,15 @@ module Bolt
      File.unlink(file_path)  
     end
   end
+
+  helper_method :format_url_id
+    def format_url_id(id)
+      id.gsub(" ", "-")
+    end
+
+    def deformat_url_id(id)
+      id.gsub("-", " ")
+    end
   
   
   end
