@@ -16,7 +16,7 @@ module Bolt
       @user_session = Bolt::UserSession.new params[:bolt_user_session]
       if @user_session.save
         flash[:notice] = "Login successful"
-        redirect_back_or_default :controller => :bolt, :action => :index
+        redirect_back_or_default :controller => :dashboard, :action => :index
       else
         render :action => :new
       end

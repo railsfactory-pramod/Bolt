@@ -7,7 +7,7 @@ module Bolt
     
     def index
       @bolt_page_title = 'Pages'
-      @pages = Page.paginate :page => params[:page]
+      @pages = Page.parent_menu.paginate :page => params[:page]
     end
     
     def show
@@ -57,6 +57,20 @@ module Bolt
       flash[:notice] = 'Page has been deleted'
       redirect_to bolt_pages_path
     end
+    
+    
+  def destroy_multiple
+     ids= params[:id]
+     idarr=ids.split(',')
+     idarr.each do |del|
+      @page = Page.find(del)
+      @page.destroy
+    end
+    respond_to do |format|
+      format.html { redirect_to :back  }
+      # format.json { head :ok }
+    end
+   end
     
   end
 end

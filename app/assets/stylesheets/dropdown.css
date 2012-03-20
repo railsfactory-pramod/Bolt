@@ -24,7 +24,7 @@
 			white-space: nowrap;
 		}
 		
-			.naviagtion ul li a:hover { background:#9966CC; }
+			.naviagtion ul li a:hover { background:#E18B6B; }
 			.naviagtion li:hover ul { 
 			display: block; 
 			position: absolute;
@@ -34,8 +34,8 @@
 			font-size: 11px;
 		}
 		
-			.naviagtion li:hover a { background:#9966CC; }
-			.naviagtion li:hover li a:hover { background:#9966CC; }
+			.naviagtion li:hover a { background:#966BFA; }
+			.naviagtion li:hover li a:hover { background:#98AFC7; }
 			
 #active {
 			display: block;
