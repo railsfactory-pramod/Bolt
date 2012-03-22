@@ -1,6 +1,12 @@
 <script type="text/javascript" src="/assets/javascript_functions.js" ></script>
 
+<<<<<<< HEAD
 <table  width="100%"><td width="1%"><%= image_tag("cat.png",:size => '40x40') %></td><td><font color="blue" size="5">Category Manager: Articles</td>
+=======
+<table><td><%= image_tag("cat.png",:size => '40x40') %></td><td><font color="blue" size="5">Category Manager: Articles<% for i in 1..100 %>
+     &nbsp;
+<%end%></td>
+>>>>>>> c50c223132d14832a765101e5b5d81b7c3a3bed9
 
 <td><p style="text-align:right;">new&nbsp;&nbsp;edit&nbsp;&nbsp;delete</p>
 <p style="text-align:right;"><a  href="<%= new_bolt_category_path %>" ><%= image_tag("new.png") %></a>&nbsp;&nbsp;

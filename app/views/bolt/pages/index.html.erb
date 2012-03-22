@@ -1,5 +1,11 @@
 <script type="text/javascript" src="/assets/javascript_functions.js" ></script>
+<<<<<<< HEAD
 <table  width="100%"><td width="1%"><%= image_tag("page_manager.png",:size=>"40x40") %></td><td><font color="blue" size="6"> Page Manager: Pages</td>
+=======
+<table ><tr><td><%= image_tag("page_manager.png",:size=>"40x40") %></td><td><font color="blue" size="6"> Page Manager: Pages<% for i in 1..100 %>
+     &nbsp;
+<%end%></td>
+>>>>>>> c50c223132d14832a765101e5b5d81b7c3a3bed9
 
 <td><p style="text-align:right;">new&nbsp;&nbsp;edit&nbsp;&nbsp;delete</p>
 <p style="text-align:right;"><a  href="<%= new_bolt_page_path %>" ><%= image_tag("new.png") %></a>&nbsp;&nbsp;
@@ -21,10 +27,13 @@ table { border: 1px solid lightGrey }
     width: 100%; }
 td { border: 3px solid white; }
 th { border: 3px solid white; }
+<<<<<<< HEAD
 table#container tr:hover td {
   background-color:cornsilk ;
 }
 
+=======
+>>>>>>> c50c223132d14832a765101e5b5d81b7c3a3bed9
 
 </style>
 <%= will_paginate @pages %>

@@ -1,6 +1,12 @@
 <script type="text/javascript" src="/assets/javascript_functions.js" ></script>
 
+<<<<<<< HEAD
 <table  width="100%"><td width="1%"><%= image_tag("user.png",:size => '40x40') %></td><td><font color="blue" size="5"> User Manager: Users</td>
+=======
+<table ><td><%= image_tag("user.png",:size => '40x40') %></td><td><font color="blue" size="5"> User Manager: Users<% for i in 1..100 %>
+     &nbsp;
+<%end%></td>
+>>>>>>> c50c223132d14832a765101e5b5d81b7c3a3bed9
 
 <td><p style="text-align:right;">new&nbsp;&nbsp;edit&nbsp;&nbsp;delete</p>
 <p style="text-align:right;"><a  href="<%= new_bolt_user_path %>" ><%= image_tag("new.png") %></a>&nbsp;&nbsp;
@@ -19,6 +25,7 @@ table { border: 1px solid lightGrey }
 tr { border: 3px solid white; }
 td { border: 3px solid white; }
 th { border: 3px solid white; }
+<<<<<<< HEAD
 table#container tr:hover td {
   background-color:cornsilk ;
 }
@@ -27,6 +34,12 @@ table#container tr:hover td {
 </style>
 
 <table id="container" bgcolor="#F0F0F0" align="left">
+=======
+
+</style>
+
+<table id="container" bgcolor="Cornsilk" align="left">
+>>>>>>> c50c223132d14832a765101e5b5d81b7c3a3bed9
   <tr>
     <thead>
   <th align="left"><input type="checkbox" id="chkunchk"  onclick="select_all()"/></th>

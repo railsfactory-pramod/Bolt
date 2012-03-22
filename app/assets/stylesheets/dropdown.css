@@ -24,7 +24,11 @@
 			white-space: nowrap;
 		}
 		
+<<<<<<< HEAD
 			.naviagtion ul li a:hover { background:White; }
+=======
+			.naviagtion ul li a:hover { background:#E18B6B; }
+>>>>>>> c50c223132d14832a765101e5b5d81b7c3a3bed9
 			.naviagtion li:hover ul { 
 			display: block; 
 			position: absolute;
@@ -34,8 +38,13 @@
 			font-size: 11px;
 		}
 		
+<<<<<<< HEAD
 			.naviagtion li:hover a { background:lightgrey; }
 			.naviagtion li:hover li a:hover { background:#87CEEB; }
+=======
+			.naviagtion li:hover a { background:#966BFA; }
+			.naviagtion li:hover li a:hover { background:#98AFC7; }
+>>>>>>> c50c223132d14832a765101e5b5d81b7c3a3bed9
 			
 #active {
 			display: block;

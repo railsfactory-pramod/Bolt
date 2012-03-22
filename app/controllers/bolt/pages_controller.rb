@@ -74,6 +74,7 @@ module Bolt
      ids= params[:id]
      idarr=ids.split(',')
      idarr.each do |del|
+<<<<<<< HEAD
       #@page = Page.find(del)
       total_rows=Page.find(:all, :conditions => { :id => del}).count
       if(total_rows > 0)
@@ -82,6 +83,13 @@ module Bolt
     end
     respond_to do |format|
       format.html { redirect_to :action =>"index"  }
+=======
+      @page = Page.find(del)
+      @page.destroy
+    end
+    respond_to do |format|
+      format.html { redirect_to :back  }
+>>>>>>> c50c223132d14832a765101e5b5d81b7c3a3bed9
       # format.json { head :ok }
     end
    end
