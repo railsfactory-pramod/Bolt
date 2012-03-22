@@ -9,10 +9,11 @@ $BOLT_ACCESS_NONE = 100
 
 module Bolt
   class User < ActiveRecord::Base
-    
     def self.table_name
       self.to_s.gsub("::", "_").tableize
     end
+    
+    validates_presence_of :users_groups
    
     has_many :users_groups
     has_many :groups, :through => :users_groups, :dependent => :destroy

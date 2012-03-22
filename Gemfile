@@ -39,8 +39,8 @@ gem 'ancestry'
 #gem 'ar-extensions'
 
 group :production do
-  gem 'pg'
-  gem 'sqlite3'
+  #gem 'pg'
+  #gem 'sqlite3'
 end
 
 group :development do

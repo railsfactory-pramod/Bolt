@@ -10,6 +10,7 @@ class CreatePages < ActiveRecord::Migration
       t.integer :status
       t.string :view_template
       t.string :default_template
+      t.string :banner_path
       
       t.timestamps
     end

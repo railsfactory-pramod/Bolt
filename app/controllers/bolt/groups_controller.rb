@@ -4,8 +4,8 @@ class GroupsController < ApplicationController
   # GET /bolt/groups.json
   layout "bolt_main"
   def index
-    @groups = Group.all
-
+   sortcolumn=(params[:sort]==nil)? 'name' : params[:sort]  
+   @groups = Group.find(:all, :order => sortcolumn)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @groups }

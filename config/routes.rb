@@ -11,8 +11,11 @@ Bolt::Application.routes.draw do
   get "/:cat_name/:id-:title" => "bolt/info#show", :as => :ambiguous_section, :defaults => {:id => nil, :cat_name => "Articles", :title => nil}
   get "/:id" => "bolt/info#show", :as => :page, :defaults => {:id => "Home", :cat => nil}
   root :to => "bolt/info#show"
+  post "bolt/settings/:id" => "bolt/settings#update", :as => "update" 
   
   namespace :bolt do
+		resources :banners
+		resources :settings
     resources :page_sections
     resources :pages
     resources :articles_categories

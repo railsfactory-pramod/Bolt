@@ -3,8 +3,9 @@ module Bolt
     # GET /bolt/users
     # GET /bolt/users.json
     def index
-      @bolt_users = Bolt::User.all
-      
+      sortcolumn=(params[:sort]==nil)? 'name' : params[:sort]  
+      @bolt_users = Bolt::User.find(:all, :order => sortcolumn)
+     
       respond_to do |format|
         format.html # index.html.erb
         format.json { render :json => @bolt_users }
@@ -47,9 +48,11 @@ module Bolt
       
       respond_to do |format|
         if @bolt_user.save
-          format.html { redirect_to :action=>'index', :notice => 'User was successfully created.' }
+	  flash[:success] = 'User was successfully created.'
+          format.html { redirect_to :action=>'index'}
           format.json { render :json => @bolt_users, :status => "created", :location => @bolt_user }
         else
+	  @groups = Group.all	
           format.html { render :action => "new" }
           format.json { render :json => @bolt_user.errors, :status => :unprocessable_entity}
         end
@@ -63,7 +66,8 @@ module Bolt
 
       respond_to do |format|
         if @bolt_user.update_attributes(params[:bolt_user])
-          format.html { redirect_to :action=>'index', :notice => 'User was successfully updated.' }
+  	  flash[:success] = 'User was successfully updated.'
+          format.html { redirect_to :action=>'index' }
           format.json { head :no_content }
         else
           format.html { render :action => "show" }

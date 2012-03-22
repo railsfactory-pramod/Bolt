@@ -35,7 +35,7 @@
 	<td>
 	  <table align="center" width="100%" height="100%">
 	    <tr height="10%" bgcolor="#D9BAC7">
-	      <td ><div><img src="/assets/logo.png"/></div><div class="heading"> A Super Cms By Rails Factory</div></td>
+	      <td ><div><img src="<%=@site_settings.logo_path%>"/></div><div class="heading"><%=@site_settings.slogan%></div></td>
 	    </tr>
 	    <tr height="5%" class="main-menu">
 	                  
@@ -44,7 +44,20 @@
 		<ul id="menu">
 		<%   @top_menu.each do |page| %>
  		
-		  <li><a href="/<%= format_url_id(page.title) %>"><%= page.title.titleize %></a></li> 
+		  <li><a href="/<%= format_url_id(page.title) %>"><%= page.title.titleize %></a>
+		  	
+		  	<ul>
+		  		 <% ancpage=Page.where(:ancestry => page.id )
+       ancpage.each do |test|%>
+		  		<li class="submenu">
+		  		  
+		  		  <a href="/<%= format_url_id(test.title) %>"><%= test.title.titleize %></a>
+		  		    
+		  		</li>
+		  	
+		  	<%end%>
+		  </ul> 
+		  </li>
 		<%   end %>  
 		</ul>
 		<% end %>
@@ -57,7 +70,8 @@
 	      <td align="center" class="footer_text"><img src="/assets/adv.png"/></td>
 	    </tr>
 	    <tr height="5%" bgcolor="#D9BAC7">
-	      <td align="center" class="footer_text">Copyright to <a href="#">Railsfactory</a> @2012</td>
+	      <td align="center" class="footer_text"><%=simple_format(@site_settings.footer_text)
+%></td>
 	    </tr>
 	  </table>
 	</td>

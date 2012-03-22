@@ -1,4 +1,7 @@
 class Page < ActiveRecord::Base
+  validates :title, :presence => true,
+                    :uniqueness => true
+                    
   has_ancestry
   has_many :page_sections, :dependent => :destroy
 

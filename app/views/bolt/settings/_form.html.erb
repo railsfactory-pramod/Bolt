@@ -1,0 +1,25 @@
+
+<div class="tfContainer" style="float:none;">
+	<%= bolt_text_field f, f.object, :site_name %>
+</div>
+
+<div class="tfContainer" style="float:none;">
+	<%= bolt_text_field f, f.object, :slogan %>
+</div>
+
+<div class="tfContainer" style="float:none;">
+	<%= bolt_text_field f, f.object, :footer_text %>
+</div>
+<input type="hidden" id="logo_path" name="bolt_setting[logo_path]"/>
+
+<div class="tfContainer" style="float:none;">
+	<p><label>Current Logo</label></p>
+	<img src="<%=@setting.logo_path%>" />
+</div>
+
+
+<div class="tfContainer" style="float:none;">
+	<button id="opener"><a href="javascript:void(0)">Select Another Logo</a></button>	
+</div>
+
+<div class="clearer" style="float:left;"></div>

@@ -7,16 +7,20 @@ module Bolt
     
     def index
       @bolt_page_title = 'Pages'
-      @pages = Page.paginate :page => params[:page]
+      @pages = Page.parent_menu.paginate :page => params[:page]
     end
     
     def show
       @bolt_page_title = 'View page'
+      media_id =Medium.where(:link_title  => 'banners')
+       @site_images =MediaImage.where(:medium_id => media_id)
       @page = Page.find params[:id]
     end
     
     def new
       @bolt_page_title = 'Add a new page'
+    media_id =Medium.where(:link_title  => 'banners')
+       @site_images =MediaImage.where(:medium_id => media_id)
       @page = Page.new
     end
 
@@ -38,8 +42,16 @@ module Bolt
     
     def update
       @bolt_page_title = 'Update page'
-      
       @page = Page.find params[:id]
+      if(params[:parent].to_i > 0 && params[:parent].to_i != @page.parent_id)
+	  parent = Page.find_by_id(params[:parent])	
+	  if(!parent.nil?)
+              @page.parent_id = parent.id
+          end
+      elsif(params[:parent].blank? || params[:parent].nil?) 
+           	@page.parent_id = nil      
+      end
+      
       
       if @page.update_attributes params[:page]
         flash[:notice] = 'Page has been updated'
@@ -52,11 +64,27 @@ module Bolt
     
     def destroy
       @page = Page.find params[:id]
-
       @page.destroy
       flash[:notice] = 'Page has been deleted'
       redirect_to bolt_pages_path
     end
+    
+    
+  def destroy_multiple
+     ids= params[:id]
+     idarr=ids.split(',')
+     idarr.each do |del|
+      #@page = Page.find(del)
+      total_rows=Page.find(:all, :conditions => { :id => del}).count
+      if(total_rows > 0)
+       Page.destroy(del)
+      end
+    end
+    respond_to do |format|
+      format.html { redirect_to :action =>"index"  }
+      # format.json { head :ok }
+    end
+   end
     
   end
 end

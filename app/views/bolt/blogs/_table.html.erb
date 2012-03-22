@@ -1,10 +1,10 @@
 
-<table id="container" bgcolor="Cornsilk" align="left">
-	<tr>
-		<td><input type="checkbox" id="chkunchk"  onclick="select_all()"/></td>
-		<td><font color="blue">Title</font></td>
-		<td><font color="blue">Body</font></td>
-		<td><font color="blue">Author</font></td>
+<table id="container" bgcolor="#F0F0F0" align="left">
+	<tr><thead>
+		<th align="left"><input type="checkbox" id="chkunchk"  onclick="select_all()"/></th>
+		<th align="left"><font color="blue"><a href = "/bolt/blogs?sort=title">Title</font></th>
+
+		<th align="left"><font color="blue"><a href = "/bolt/blogs?sort=author">Author</font></th></thead>
 
 	</tr>
 	
@@ -14,7 +14,7 @@
   <td style="px"><input class='selall'  type='checkbox' id='chk_<%=blog.id%>'  name ='checkbox' onclick="test()"  value='<%=blog.id %>'></td>
 
     <td><%= blog.title %></td>
-    <td><%=h blog.body.html_safe %></td>
+   
    <td><%= blog.author %></td>
     
   </tr>

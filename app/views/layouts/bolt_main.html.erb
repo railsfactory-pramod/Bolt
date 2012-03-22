@@ -17,6 +17,21 @@
     <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>   
     
     <%= csrf_meta_tag %>
+    <style type ="text/css">
+    table
+    {border: groove 1m ;
+    border-radius: 1em;}
+    td
+    {border: groove 1m ;
+    border-radius: 1em;}
+    th
+    {border: groove 1m ;
+    border-radius: 1em;}
+a:link, a:visited {
+    color:;
+}
+
+    </style>
 
     <style type="text/css">
       p.margin
@@ -49,7 +64,7 @@ padding-bottom:-3px;
        
         
     </head>
-  <body id="store">
+<body style="background-color:silver;">
 <div id="banner">
 <%= image_tag("logo.png",:size => '100x32' ) %>
 <%= @page_title || "Administration" %>
@@ -57,12 +72,13 @@ padding-bottom:-3px;
    
 <table  width="100%" height="1%"  >
   
-<p class="margin"><td><div class='naviagtion'><ul id="menu">
-  <p class="margin"><td><div class='naviagtion'><ul id="menu">
+<p class="margin"><div class='naviagtion'><ul id="menu">
+  <p class="margin"><div class='naviagtion'><ul id="menu">
      	  
 	  <li><a href="<%= root_path %>">Site</a>
 	    <ul>
      	      <li><a href="<%= bolt_dashboard_path %>">Dashboard</a></li>
+     	      <li><a href="<%= bolt_settings_path %>">Setting</a></li>
      	    </ul>	
      	  </li>
      	  
@@ -78,6 +94,7 @@ padding-bottom:-3px;
 	    <ul> 
 	      <li><a href="<%= bolt_articles_path %>">Article Manager</a></li> 
 	      <li><a href="<%= bolt_categories_path %>">Category Manager</a></li> 
+	      <li><a href="<%= bolt_blogs_path %>">Blog Manager</a></li> 
 	      <li><a href="<%= bolt_media_path %>">Media Manager</a></li> 
 	      
 	    </ul> 

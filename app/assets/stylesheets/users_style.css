@@ -4,6 +4,7 @@
 			margin: 0;
 			padding: 0;
 			list-style: none;
+			z-index:999;
 		}
 		.main-menu ul li {
 			display: block;
@@ -29,7 +30,7 @@
 		}
 		.main-menu li:hover li { 
 			float: none;
-			font-size: 11px;
+			font-size: 14px;
 		}
 		.main-menu li:hover a { background: #617F8A; }
 		.main-menu li:hover li a:hover { background: #95A9B1; }

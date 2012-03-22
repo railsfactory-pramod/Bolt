@@ -2,6 +2,8 @@ class Article < ActiveRecord::Base
   
   ######   association ###########
   
+  validates :title, :presence => true
+  validates :alias, :presence => true
   
   belongs_to :status
   belongs_to :access

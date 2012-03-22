@@ -8,25 +8,38 @@ module Bolt
     # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
   
     def index
+
+     sortcolumn=(params[:sort]==nil)? ' ' : params[:sort]  
+      @bolt_articles = Article.find(:all, :order => sortcolumn)
       @bolt_page_title = 'Articles'
-  		@articles = Article.paginate :page => params[:page]
+      @articles = Article.paginate :page => params[:page]
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render :json => @bolt_articles }
+      end
     end
   
-    def show
+    def show 
+      @bolt_article = Bolt::Article.find(params[:id])
       @bolt_page_title = 'View article'
       @article = Article.find params[:id]
       @categories =Category.all
       @statuses = Status.all
-      @accesses  = Access.all
-
+      @accesses  = Access.all                
+      @u_categories = @bolt_article.groups.collect{|g| g.id}
+         
     end
  
     def new
       @bolt_page_title = 'Add a new article'
-    	@article = Article.new
-    	@categories =Category.all
-    	@statuses = Status.all
-    	@accesses  = Access.all
+      @article = Article.new
+      @categories =Category.all
+      @statuses = Status.all
+      @accesses  = Access.all
+       respond_to do |format|
+        format.html # new.html.erb
+        format.json { render :json => @bolt_articles }
+      end 
     end
 
     def create
@@ -36,6 +49,9 @@ module Bolt
         flash[:notice] = 'Article created'
         redirect_to bolt_articles_path
       else
+        @categories =Category.all
+        @statuses = Status.all
+        @accesses  = Access.all                
         flash.now[:warning] = 'There were problems when trying to create a new article'
         render :action => :new
       end

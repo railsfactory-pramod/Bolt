@@ -19,12 +19,12 @@
 			/*color: #ffffff;*/
 			border-top: 1px solid #ffffff;
 			padding: 5px 15px 5px 15px;
-			background:#9966CC ;
+			background:lightGrey ;
 			margin-left: 1px;
 			white-space: nowrap;
 		}
 		
-			.naviagtion ul li a:hover { background:#9966CC; }
+			.naviagtion ul li a:hover { background:White; }
 			.naviagtion li:hover ul { 
 			display: block; 
 			position: absolute;
@@ -34,8 +34,8 @@
 			font-size: 11px;
 		}
 		
-			.naviagtion li:hover a { background:#9966CC; }
-			.naviagtion li:hover li a:hover { background:#9966CC; }
+			.naviagtion li:hover a { background:lightgrey; }
+			.naviagtion li:hover li a:hover { background:#87CEEB; }
 			
 #active {
 			display: block;
