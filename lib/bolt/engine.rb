@@ -1,8 +1,14 @@
-#require "bolt"
+require "bolt"
+require "will_paginate"
+require "ancestry"
+require "acts_as_trashable"
+require "authlogic"
+require "paperclip"
+require "aws-sdk"
 require "rails"
 
 module Bolt
-  class Railtie < Rails::Railtie    
+  class Engine < Rails::Engine    
     rake_tasks do
       task :name do
         puts "hi"

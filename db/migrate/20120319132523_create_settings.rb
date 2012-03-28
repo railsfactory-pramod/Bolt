@@ -8,6 +8,8 @@ class CreateSettings < ActiveRecord::Migration
       
       t.timestamps
     end
+    
+    Setting.create :site_name => "Bolt", :logo_path => "/assets/logo.png" , :slogan =>"Super CMS by Nitin" , :footer_text => "Copyright to <a href='#'>Railsfactory</a>@2012"
   end
 
   def self.down

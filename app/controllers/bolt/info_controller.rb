@@ -2,7 +2,7 @@ module Bolt
   class InfoController < Bolt::BoltController
     layout "default_site"
     def show   
-      @site_settings=Setting.find(1)   
+       @site_settings=Setting.find(1)   
       @top_menu = Page.parent_menu
       if(!params[:cat_name].nil?)
         if(!params[:cat_name].match(/article/i).nil?)

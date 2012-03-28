@@ -3,10 +3,7 @@
 module Bolt
   class DashboardController < Bolt::BoltController
   
-    ## optional filters for defining usage according to Bolt::Users access_levels
-    # before_filter :needs_admin, :except => [:action1, :action2]
-    # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
-  
+   
     def index
     end
 

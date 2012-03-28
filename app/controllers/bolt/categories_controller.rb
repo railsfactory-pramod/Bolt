@@ -5,7 +5,7 @@ module Bolt
     # before_filter :needs_admin, :except => [:action1, :action2]
     # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
   
-    def index
+    def index               
       @bolt_page_title = 'Categories'
   		@categories = Category.paginate :page => params[:page]
     end

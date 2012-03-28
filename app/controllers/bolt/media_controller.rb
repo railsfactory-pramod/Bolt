@@ -85,7 +85,11 @@ class MediaController < Bolt::BoltController
     # end
   # end
   
-   def uploadFile
+   def uploadFile   
+    folderpath=   "app"+params[:folderpath]
+    if(Dir[folderpath].empty?)	
+	create_directory(folderpath)
+    end
     MediaImage.save(params[:upload],params[:folderparent],params[:folderpath])
     #render :text => "File has been uploaded successfully"
     redirect_to "/bolt/media/index"   

@@ -15,6 +15,10 @@
 	    <img src='/assets/ppt.jpg' alt="<%=datum.image_path%>" /><br/><a style="font-size: 10px;color:red;" href="javascript:void(0);" onclick="delete_image('<%=datum.medium.file_path+"/"+datum.image_path%>','<%=datum.id%>');">Delete</a></td>
 	<% elsif(datum.image_path.to_s.include?(".xls")) %>
 	    <img src='/assets/excel.jpg' alt="<%=datum.image_path%>" /><br/><a style="font-size: 10px;color:red;" href="javascript:void(0);" onclick="delete_image('<%=datum.medium.file_path+"/"+datum.image_path%>','<%=datum.id%>');">Delete</a></td>
+   <% elsif(datum.image_path.to_s.include?(".flv") or datum.image_path.to_s.include?(".dat") or datum.image_path.to_s.include?(".mp4")) %>
+	    <img src='/assets/video_icon.jpg' alt="<%=datum.image_path%>" /><br/><a style="font-size: 10px;color:red;" href="javascript:void(0);" onclick="delete_image('<%=datum.medium.file_path+"/"+datum.image_path%>','<%=datum.id%>');">Delete</a></td>
+  <% elsif(datum.image_path.to_s.include?(".mp3")) %>
+	    <img src='/assets/audio_icon.jpg' alt="<%=datum.image_path%>" /><br/><a style="font-size: 10px;color:red;" href="javascript:void(0);" onclick="delete_image('<%=datum.medium.file_path+"/"+datum.image_path%>','<%=datum.id%>');">Delete</a></td>
 	<% else %>
 	    <img src='/assets/file.jpeg' alt="<%=datum.image_path%>" /><br/><a style="font-size: 10px;color:red;" href="javascript:void(0);" onclick="delete_image('<%=datum.medium.file_path+"/"+datum.image_path%>','<%=datum.id%>');">Delete</a></td>
 	

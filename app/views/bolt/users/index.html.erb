@@ -42,7 +42,7 @@ table#container tr:hover td {
   <tr>
      <td style="px"><input class='selall'  type='checkbox' id='chk_<%=bolt_user.id%>'  name ='checkbox' onclick="test()"  value='<%=bolt_user.id %>'></td>
     <td><%= bolt_user.name %></td>
-    <td><%= bolt_user.login_name %></td>
+    <td><%= bolt_user.login %></td>
     <td><% bolt_user.groups.each do |g| %>
 		<%= g.name.titleize %>,
 	     <% end %>

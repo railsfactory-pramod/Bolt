@@ -26,6 +26,7 @@
 	<% end %>  		  
       </div>      
     </td>
+    <% if @page %>
     <td style="width: 600px;">
       <% if(!@article.nil?) %>
       <%= raw(@article.body) %>
@@ -35,9 +36,8 @@
       <% end %>
     </td>
     <td style="float: right;">
-      <% if(false) %>
       <%= raw(@page.page_sections.last.body) %>
-      <% end %>
     </td>
+    <% end %>
  </tr>
 </table>
