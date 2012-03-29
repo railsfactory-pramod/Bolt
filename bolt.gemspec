@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["railsfactory-pramod"]
-  s.date = %q{2012-03-28}
+  s.date = %q{2012-03-29}
   s.description = %q{write description here}
   s.email = %q{pramod@railsfactory.com}
   s.extra_rdoc_files = [
@@ -17,21 +17,30 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
+    ".document",
     "Gemfile",
     "Gemfile.lock",
     "PUBLIC_VERSION.yml",
     "README",
+    "README.rdoc",
     "Rakefile",
+    "VERSION",
+    "app/assets/audios/twilight-hole.mp3",
+    "app/assets/files/arvind resume (1).doc",
+    "app/assets/files/toma v 0 1.ppt",
     "app/assets/images/0d0a413.png",
     "app/assets/images/120.jpg",
     "app/assets/images/51.jpg",
     "app/assets/images/Untitled Document",
     "app/assets/images/access.png",
     "app/assets/images/adv.png",
+    "app/assets/images/airtel.png",
     "app/assets/images/article.png",
+    "app/assets/images/audio_icon.jpg",
     "app/assets/images/background.gif",
     "app/assets/images/banners/111.jpg",
     "app/assets/images/banners/90.jpg",
+    "app/assets/images/banners/cat.png",
     "app/assets/images/banners/userimg.png",
     "app/assets/images/blog.png",
     "app/assets/images/body.png",
@@ -77,6 +86,7 @@ Gem::Specification.new do |s|
     "app/assets/images/user.png",
     "app/assets/images/user1.png",
     "app/assets/images/user_manager.png",
+    "app/assets/images/video_icon.jpg",
     "app/assets/images/vline.gif",
     "app/assets/images/word.png",
     "app/assets/javascripts/application.js",
@@ -93,6 +103,7 @@ Gem::Specification.new do |s|
     "app/assets/javascripts/media.js",
     "app/assets/javascripts/media.js.coffee",
     "app/assets/javascripts/rails.js",
+    "app/assets/miscellaneous/1leader.flv",
     "app/assets/miscellaneous/users_controller.1.rb",
     "app/assets/stylesheets/application.css",
     "app/assets/stylesheets/bolt/articles.css.scss",
@@ -109,6 +120,7 @@ Gem::Specification.new do |s|
     "app/assets/stylesheets/scaffolds.css.scss",
     "app/assets/stylesheets/ui.dynatree.css",
     "app/assets/stylesheets/users_style.css",
+    "app/assets/videos/1leader.flv",
     "app/controllers/application_controller.rb",
     "app/controllers/bolt/accesses_controller.rb",
     "app/controllers/bolt/articles_categories_controller.rb",
@@ -263,6 +275,7 @@ Gem::Specification.new do |s|
     "app/views/user_groups/index.html.erb",
     "app/views/user_groups/new.html.erb",
     "app/views/user_groups/show.html.erb",
+    "bolt.gemspec",
     "config/application.rb",
     "config/boot.rb",
     "config/database.yml",
@@ -351,6 +364,7 @@ Gem::Specification.new do |s|
     "lib/tasks/.gitkeep",
     "lib/tasks/tasks.rake",
     "log/.gitkeep",
+    "log/development.log",
     "public/404.html",
     "public/422.html",
     "public/500.html",
@@ -658,6 +672,64 @@ Gem::Specification.new do |s|
     "test/unit/helpers/media_helper_test.rb",
     "test/unit/media_images_test.rb",
     "test/unit/medium_test.rb",
+    "tmp/cache/assets/C54/640/sprockets%2F2c629c1f664e9617d3640719b3632b17",
+    "tmp/cache/assets/C7D/6D0/sprockets%2F152903d5729cf828d6b3211e056f07f1",
+    "tmp/cache/assets/C86/B40/sprockets%2Fddba06e586a52377d1408494172c1969",
+    "tmp/cache/assets/C8E/710/sprockets%2F8e260095a2b790ab9b69867504579ea4",
+    "tmp/cache/assets/C9C/3F0/sprockets%2Fac08113528561f6a04fa16af078237a2",
+    "tmp/cache/assets/CA1/9D0/sprockets%2F42501f2653fac470e4918083eab44a43",
+    "tmp/cache/assets/CA8/3E0/sprockets%2F1122dd95e8e7a06c973aaf3211325629",
+    "tmp/cache/assets/CAC/920/sprockets%2Fe923171d154d77f7b3651621e9be4a12",
+    "tmp/cache/assets/CB7/E80/sprockets%2F3e36ac627557b7698ab7373b8117e04c",
+    "tmp/cache/assets/CBD/F90/sprockets%2F5bf68c03718764b064b9d6aa7678b815",
+    "tmp/cache/assets/CBE/FC0/sprockets%2F30a714d08e15c514e6c10262eda27a10",
+    "tmp/cache/assets/CD3/710/sprockets%2Fdc6f378030cc45a02083ea8480ea4545",
+    "tmp/cache/assets/CDA/4B0/sprockets%2F5d5b6366c61803d7a0f22985b15db05e",
+    "tmp/cache/assets/CDB/910/sprockets%2F26098b294d10eec3e946bb124334e5e4",
+    "tmp/cache/assets/CDD/310/sprockets%2F31f9755735201195bcc6cd5a72cdd418",
+    "tmp/cache/assets/CE6/080/sprockets%2F8413d14bbb65ab15807b6c7854df7839",
+    "tmp/cache/assets/CE8/2E0/sprockets%2F3412bd59e657d1d31fef94f360e63960",
+    "tmp/cache/assets/CF0/F30/sprockets%2Fe6bbb43102709c6f00c101b0f104e59e",
+    "tmp/cache/assets/D09/9C0/sprockets%2Fd51e2b7065f4736ea0b4706bb8f2490d",
+    "tmp/cache/assets/D0C/090/sprockets%2Fe620294f025dc4db4b091a6fd8842f72",
+    "tmp/cache/assets/D0C/B30/sprockets%2F61da62931d6aa6b0884c7c46d73318ae",
+    "tmp/cache/assets/D14/410/sprockets%2F6ef8bab596255e461e631f30f3057c9a",
+    "tmp/cache/assets/D18/8E0/sprockets%2F553c7fa16e8a84c648315cc72fe831b7",
+    "tmp/cache/assets/D19/D10/sprockets%2F2f0de5283c9968db4d1374cb8d5e4056",
+    "tmp/cache/assets/D24/E70/sprockets%2F26fe79461cae5d5598bc4657ef1069b5",
+    "tmp/cache/assets/D32/9F0/sprockets%2F93ab09bb1c6c2ad0475a735179fa32a8",
+    "tmp/cache/assets/D3E/410/sprockets%2Ffce1351018f8c83095eddc5b4218b83d",
+    "tmp/cache/assets/D45/5E0/sprockets%2F5f7db083a352c5f58bf2ee52428b828c",
+    "tmp/cache/assets/D4B/870/sprockets%2F7df7cd48d8d6118b3c1886e19225ddc2",
+    "tmp/cache/assets/D5B/570/sprockets%2F8fe0fe2126877f9663dcabb87e53f686",
+    "tmp/cache/assets/D5F/560/sprockets%2F4dfb31a96b8a6d07b4b2fae6771013a3",
+    "tmp/cache/assets/D67/740/sprockets%2F914250e6e19bfedd151f844134bdbfa3",
+    "tmp/cache/assets/D6E/880/sprockets%2Fdc38ee7c85102aea28b1b7631b8d5f75",
+    "tmp/cache/assets/D71/320/sprockets%2Fa1e7dd14a3619670efbf418224f67eed",
+    "tmp/cache/assets/D71/AC0/sprockets%2Fc63f7170e985c425a41bcfc6ef255dc3",
+    "tmp/cache/assets/D7D/AF0/sprockets%2Fb83ac7a4bce6f6777ea227b2f468386e",
+    "tmp/cache/assets/D7F/050/sprockets%2F829d767af43e2ee39aae9bf42d52c548",
+    "tmp/cache/assets/D7F/280/sprockets%2Fbbbc334308cb02ecbe762f51102e2aa8",
+    "tmp/cache/assets/D86/870/sprockets%2Ff31fade2a7a67dea51547e151c1011ae",
+    "tmp/cache/assets/D9C/A00/sprockets%2Fdc0f5e55c3b1807ec4e2e4e3cd89322d",
+    "tmp/cache/assets/D9E/320/sprockets%2F4bd385a3ade9ae270c55e5d78bc433f3",
+    "tmp/cache/assets/DA1/7A0/sprockets%2Fbbed2ec6276c8b43207d95374c7adb9b",
+    "tmp/cache/assets/DA9/A60/sprockets%2Fb0df3c38a5e0ffc99973b70ac7a892e4",
+    "tmp/cache/assets/DAF/7D0/sprockets%2Fcdd1b46b298906f6ce6a28f52e65fbd9",
+    "tmp/cache/assets/DC6/430/sprockets%2F4a8fa4f520c7bca0f1a3ee036f827f9a",
+    "tmp/cache/assets/DC6/CB0/sprockets%2Ff3905eb55b92b16a5abfeacf56361ac5",
+    "tmp/cache/assets/DC8/6F0/sprockets%2Fe5d43339a1caabba7f814820e7d6bee6",
+    "tmp/cache/assets/DC9/CC0/sprockets%2Fee2a562bc64e9fce082d722b0b2ab8e9",
+    "tmp/cache/assets/DCA/D60/sprockets%2Fc16f6f0356f8da24cf0e947adfafc013",
+    "tmp/cache/assets/DDA/9B0/sprockets%2Faa164ef6ad6c0b116d1a6e2b6bb0e11b",
+    "tmp/cache/assets/DF1/860/sprockets%2Ffa8148d030d13a27e8fb31fae62eebcd",
+    "tmp/cache/assets/DF8/2B0/sprockets%2F98b5d2becdbb33d6660e110e83bfe6bd",
+    "tmp/cache/assets/DFD/E90/sprockets%2F41f66b0c56fcb37ab0ecdad2f9b8865c",
+    "tmp/cache/assets/E0A/CA0/sprockets%2F7fe72ac1c0db1a7e8e7f59cf25e8a39e",
+    "tmp/cache/assets/E24/4D0/sprockets%2Fc94a7edfea5d1caa6216e97a52b0d4ea",
+    "tmp/cache/assets/E34/D90/sprockets%2Ffe22b538e88fae0b8ffbcdb8a5c780a4",
+    "tmp/cache/assets/E4D/D60/sprockets%2F0fabdb20fef5b23b067e7b58b8af2aad",
+    "tmp/cache/assets/E5B/A10/sprockets%2F74342cb6e0fce1f8ce5a8aea8eff1b0e",
     "vendor/assets/stylesheets/.gitkeep",
     "vendor/plugins/.gitkeep"
   ]
@@ -673,16 +745,13 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rails>, ["= 3.1.1"])
-      s.add_runtime_dependency(%q<hirb>, [">= 0"])
-      s.add_runtime_dependency(%q<json>, [">= 0"])
-      s.add_runtime_dependency(%q<jquery-rails>, [">= 0"])
       s.add_runtime_dependency(%q<will_paginate>, [">= 0"])
-      s.add_runtime_dependency(%q<mysql>, [">= 0"])
+      s.add_runtime_dependency(%q<ancestry>, [">= 0"])
+      s.add_runtime_dependency(%q<acts_as_trashable>, [">= 0"])
       s.add_runtime_dependency(%q<authlogic>, [">= 0"])
       s.add_runtime_dependency(%q<paperclip>, [">= 0"])
-      s.add_runtime_dependency(%q<aws-s3>, [">= 0"])
-      s.add_runtime_dependency(%q<acts_as_trashable>, [">= 0"])
-      s.add_runtime_dependency(%q<ancestry>, [">= 0"])
+      s.add_runtime_dependency(%q<aws-sdk>, [">= 0"])
+      s.add_runtime_dependency(%q<mysql>, [">= 0"])
       s.add_runtime_dependency(%q<execjs>, [">= 0"])
       s.add_runtime_dependency(%q<therubyracer>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
@@ -690,18 +759,21 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.3"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<will_paginate>, [">= 0"])
+      s.add_development_dependency(%q<ancestry>, [">= 0"])
+      s.add_development_dependency(%q<acts_as_trashable>, [">= 0"])
+      s.add_development_dependency(%q<authlogic>, [">= 0"])
+      s.add_development_dependency(%q<paperclip>, [">= 0"])
+      s.add_development_dependency(%q<aws-sdk>, [">= 0"])
     else
       s.add_dependency(%q<rails>, ["= 3.1.1"])
-      s.add_dependency(%q<hirb>, [">= 0"])
-      s.add_dependency(%q<json>, [">= 0"])
-      s.add_dependency(%q<jquery-rails>, [">= 0"])
       s.add_dependency(%q<will_paginate>, [">= 0"])
-      s.add_dependency(%q<mysql>, [">= 0"])
+      s.add_dependency(%q<ancestry>, [">= 0"])
+      s.add_dependency(%q<acts_as_trashable>, [">= 0"])
       s.add_dependency(%q<authlogic>, [">= 0"])
       s.add_dependency(%q<paperclip>, [">= 0"])
-      s.add_dependency(%q<aws-s3>, [">= 0"])
-      s.add_dependency(%q<acts_as_trashable>, [">= 0"])
-      s.add_dependency(%q<ancestry>, [">= 0"])
+      s.add_dependency(%q<aws-sdk>, [">= 0"])
+      s.add_dependency(%q<mysql>, [">= 0"])
       s.add_dependency(%q<execjs>, [">= 0"])
       s.add_dependency(%q<therubyracer>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
@@ -709,19 +781,22 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
       s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<will_paginate>, [">= 0"])
+      s.add_dependency(%q<ancestry>, [">= 0"])
+      s.add_dependency(%q<acts_as_trashable>, [">= 0"])
+      s.add_dependency(%q<authlogic>, [">= 0"])
+      s.add_dependency(%q<paperclip>, [">= 0"])
+      s.add_dependency(%q<aws-sdk>, [">= 0"])
     end
   else
     s.add_dependency(%q<rails>, ["= 3.1.1"])
-    s.add_dependency(%q<hirb>, [">= 0"])
-    s.add_dependency(%q<json>, [">= 0"])
-    s.add_dependency(%q<jquery-rails>, [">= 0"])
     s.add_dependency(%q<will_paginate>, [">= 0"])
-    s.add_dependency(%q<mysql>, [">= 0"])
+    s.add_dependency(%q<ancestry>, [">= 0"])
+    s.add_dependency(%q<acts_as_trashable>, [">= 0"])
     s.add_dependency(%q<authlogic>, [">= 0"])
     s.add_dependency(%q<paperclip>, [">= 0"])
-    s.add_dependency(%q<aws-s3>, [">= 0"])
-    s.add_dependency(%q<acts_as_trashable>, [">= 0"])
-    s.add_dependency(%q<ancestry>, [">= 0"])
+    s.add_dependency(%q<aws-sdk>, [">= 0"])
+    s.add_dependency(%q<mysql>, [">= 0"])
     s.add_dependency(%q<execjs>, [">= 0"])
     s.add_dependency(%q<therubyracer>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
@@ -729,6 +804,12 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
     s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<will_paginate>, [">= 0"])
+    s.add_dependency(%q<ancestry>, [">= 0"])
+    s.add_dependency(%q<acts_as_trashable>, [">= 0"])
+    s.add_dependency(%q<authlogic>, [">= 0"])
+    s.add_dependency(%q<paperclip>, [">= 0"])
+    s.add_dependency(%q<aws-sdk>, [">= 0"])
   end
 end
 
